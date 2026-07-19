@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio Cá Nhân — Kỹ Năng Số</title>
+  <meta name="description" content="Portfolio dự án cá nhân - Tổng hợp các bài tập và kỹ năng số đã học được trong quá trình học tập." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- LOADING SCREEN -->
+  <div class="loader">
+    <div class="loader-bar"></div>
+    <span class="loader-text">Đang tải...</span>
+  </div>
+
+  <!-- CURSOR GLOW -->
+  <div class="cursor-glow"></div>
+
+  <!-- NOISE OVERLAY -->
+  <div class="noise-overlay"></div>
+
+  <!-- ═══════════════ NAVIGATION ═══════════════ -->
+  <nav class="navbar" id="navbar">
+    <a href="#hero" class="nav-logo">Portfolio.</a>
+    <ul class="nav-links">
+      <li><a href="#about">Giới thiệu</a></li>
+      <li><a href="#projects">Dự án</a></li>
+      <li><a href="#skills">Kỹ năng</a></li>
+      <li><a href="#reflection">Tổng kết</a></li>
+    </ul>
+    <div class="nav-toggle" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+
+  <!-- ═══════════════ HERO SECTION ═══════════════ -->
+  <section class="hero" id="hero">
+    <div class="hero-bg-grid"></div>
+    <div class="hero-orb hero-orb-1"></div>
+    <div class="hero-orb hero-orb-2"></div>
+    <div class="hero-orb hero-orb-3"></div>
+
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="dot"></span>
+        Portfolio Kỹ Năng Số 2025
+      </div>
+      <h1 class="hero-title">
+        Xin chào, tôi là<br/>
+        <span class="gradient-text">[Họ và Tên]</span>
+      </h1>
+      <p class="hero-description">
+        Sinh viên ngành [Tên Ngành] — Đam mê khám phá công nghệ số và sáng tạo nội dung.
+        Portfolio này lưu trữ hành trình học tập và phát triển kỹ năng của tôi.
+      </p>
+      <div class="hero-cta">
+        <div class="magnetic-wrap">
+          <a href="#projects" class="btn btn-primary">Xem Dự Án ↓</a>
+        </div>
+        <div class="magnetic-wrap">
+          <a href="#about" class="btn btn-secondary">Tìm Hiểu Thêm</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-scroll-indicator">
+      <div class="scroll-line"></div>
+      <span class="scroll-text">Cuộn</span>
+    </div>
+  </section>
+
+  <!-- ═══════════════ ABOUT SECTION ═══════════════ -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-grid">
+
+        <div class="about-image-wrapper reveal">
+          <div class="about-image-card">
+            <div class="placeholder-avatar">👤</div>
+          </div>
+          <div class="about-float-card">
+            <div class="about-float-icon">🎓</div>
+            <div>
+              <div class="about-float-label">Trạng thái</div>
+              <div class="about-float-value">Sinh viên năm nhất</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-content">
+          <span class="section-label reveal">Giới thiệu</span>
+          <h2 class="section-title reveal reveal-delay-1">
+            Đôi nét về <span class="gradient-text">bản thân</span>
+          </h2>
+          <p class="about-text reveal reveal-delay-2">
+            Xin chào! Tôi là <strong>[Họ và Tên]</strong>, sinh viên ngành <strong>[Tên Ngành]</strong>
+            tại <strong>[Tên Trường]</strong>. Tôi đam mê công nghệ, thích khám phá những xu hướng mới
+            trong thế giới số và luôn tìm cách ứng dụng kiến thức vào thực tế.
+          </p>
+          <p class="about-text reveal reveal-delay-3">
+            <strong>Sở thích:</strong> [Đọc sách, thiết kế đồ hoạ, lập trình, chụp ảnh, ...]<br/>
+            <strong>Mục tiêu:</strong> Phát triển toàn diện kỹ năng số, xây dựng nền tảng vững chắc
+            cho sự nghiệp trong thời đại 4.0.
+          </p>
+          <p class="about-text reveal reveal-delay-4">
+            <strong>Mục tiêu Portfolio:</strong> Thể hiện các kỹ năng số đã học, lưu trữ sản phẩm cá nhân
+            để dễ dàng truy cập và chia sẻ, đồng thời ghi lại quá trình phát triển bản thân.
+          </p>
+
+          <div class="about-stats reveal reveal-delay-5">
+            <div class="stat-item">
+              <div class="stat-number" data-count="6">0</div>
+              <div class="stat-label">Bài tập</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number" data-count="6">0</div>
+              <div class="stat-label">Kỹ năng</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number" data-count="1" data-suffix=" HK">0</div>
+              <div class="stat-label">Học kỳ</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ PROJECTS SECTION ═══════════════ -->
+  <section class="projects" id="projects">
+    <div class="container">
+      <div class="projects-header">
+        <div>
+          <span class="section-label reveal">Dự án</span>
+          <h2 class="section-title reveal reveal-delay-1">
+            Các bài tập <span class="gradient-text">đã hoàn thành</span>
+          </h2>
+          <p class="section-subtitle reveal reveal-delay-2">
+            Tổng hợp 6 bài tập trong học phần Kỹ năng số, mỗi bài tập thể hiện một khía cạnh
+            quan trọng của năng lực số trong thời đại công nghệ.
+          </p>
+        </div>
+      </div>
+
+      <div class="projects-grid">
+
+        <!-- PROJECT 1 -->
+        <div class="project-card reveal reveal-delay-1">
+          <div class="project-thumbnail">
+            <div class="project-thumbnail-bg theme-purple">🖥️</div>
+            <span class="project-number">01 / 06</span>
+          </div>
+          <div class="project-body">
+            <span class="project-tag">Bài 1</span>
+            <h3 class="project-title">Máy tính và các thiết bị ngoại vi</h3>
+            <p class="project-desc">
+              Tìm hiểu cấu tạo, nguyên lý hoạt động của máy tính và các thiết bị ngoại vi.
+              Phân tích vai trò của phần cứng trong hệ thống công nghệ thông tin hiện đại.
+            </p>
+            <div class="project-meta">
+              <div class="project-tools">
+                <span class="project-tool">Phần cứng</span>
+                <span class="project-tool">Ngoại vi</span>
+              </div>
+              <div class="project-link-icon">↗</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJECT 2 -->
+        <div class="project-card reveal reveal-delay-2">
+          <div class="project-thumbnail">
+            <div class="project-thumbnail-bg theme-teal">📊</div>
+            <span class="project-number">02 / 06</span>
+          </div>
+          <div class="project-body">
+            <span class="project-tag">Bài 2</span>
+            <h3 class="project-title">Khai thác dữ liệu và thông tin</h3>
+            <p class="project-desc">
+              Thực hành kỹ năng tìm kiếm, đánh giá và sử dụng thông tin hiệu quả từ các
+              nguồn dữ liệu trực tuyến. Ứng dụng tư duy phản biện trong xử lý thông tin.
+            </p>
+            <div class="project-meta">
+              <div class="project-tools">
+                <span class="project-tool">Dữ liệu</span>
+                <span class="project-tool">Tìm kiếm</span>
+              </div>
+              <div class="project-link-icon">↗</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJECT 3 -->
+        <div class="project-card reveal reveal-delay-3">
+          <div class="project-thumbnail">
+            <div class="project-thumbnail-bg theme-pink">🤖</div>
+            <span class="project-number">03 / 06</span>
+          </div>
+          <div class="project-body">
+            <span class="project-tag">Bài 3</span>
+            <h3 class="project-title">Tổng quan về trí tuệ nhân tạo</h3>
+            <p class="project-desc">
+              Khám phá thế giới AI: từ khái niệm cơ bản đến ứng dụng thực tế. Tìm hiểu
+              Machine Learning, Deep Learning và tác động của AI đối với xã hội.
+            </p>
+            <div class="project-meta">
+              <div class="project-tools">
+                <span class="project-tool">AI</span>
+                <span class="project-tool">ML</span>
+              </div>
+              <div class="project-link-icon">↗</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJECT 4 -->
+        <div class="project-card reveal reveal-delay-4">
+          <div class="project-thumbnail">
+            <div class="project-thumbnail-bg theme-blue">💬</div>
+            <span class="project-number">04 / 06</span>
+          </div>
+          <div class="project-body">
+            <span class="project-tag">Bài 4</span>
+            <h3 class="project-title">Giao tiếp và hợp tác trong môi trường số</h3>
+            <p class="project-desc">
+              Phát triển kỹ năng giao tiếp trực tuyến, làm việc nhóm qua các nền tảng số.
+              Thực hành sử dụng công cụ cộng tác và quản lý dự án hiệu quả.
+            </p>
+            <div class="project-meta">
+              <div class="project-tools">
+                <span class="project-tool">Teamwork</span>
+                <span class="project-tool">Digital</span>
+              </div>
+              <div class="project-link-icon">↗</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJECT 5 -->
+        <div class="project-card reveal reveal-delay-5">
+          <div class="project-thumbnail">
+            <div class="project-thumbnail-bg theme-orange">🎨</div>
+            <span class="project-number">05 / 06</span>
+          </div>
+          <div class="project-body">
+            <span class="project-tag">Bài 5</span>
+            <h3 class="project-title">Sáng tạo nội dung số</h3>
+            <p class="project-desc">
+              Thực hành tạo nội dung số đa phương tiện: thiết kế đồ hoạ, chỉnh sửa hình ảnh,
+              video và xây dựng nội dung truyền thông trên các nền tảng số.
+            </p>
+            <div class="project-meta">
+              <div class="project-tools">
+                <span class="project-tool">Design</span>
+                <span class="project-tool">Content</span>
+              </div>
+              <div class="project-link-icon">↗</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJECT 6 -->
+        <div class="project-card reveal reveal-delay-6">
+          <div class="project-thumbnail">
+            <div class="project-thumbnail-bg theme-green">🔒</div>
+            <span class="project-number">06 / 06</span>
+          </div>
+          <div class="project-body">
+            <span class="project-tag">Bài 6</span>
+            <h3 class="project-title">An toàn và liêm chính học thuật trong môi trường số</h3>
+            <p class="project-desc">
+              Nâng cao nhận thức về an ninh mạng, bảo vệ dữ liệu cá nhân và thực hành
+              liêm chính học thuật. Tìm hiểu về bản quyền và đạo đức số.
+            </p>
+            <div class="project-meta">
+              <div class="project-tools">
+                <span class="project-tool">Security</span>
+                <span class="project-tool">Ethics</span>
+              </div>
+              <div class="project-link-icon">↗</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ SKILLS SECTION ═══════════════ -->
+  <section class="skills" id="skills">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-label reveal">Kỹ năng</span>
+        <h2 class="section-title reveal reveal-delay-1">
+          Những kỹ năng <span class="gradient-text">đã phát triển</span>
+        </h2>
+        <p class="section-subtitle reveal reveal-delay-2">
+          Qua quá trình học tập và thực hành, tôi đã rèn luyện được nhiều kỹ năng
+          quan trọng cho thời đại số.
+        </p>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skill-card reveal reveal-delay-1">
+          <div class="skill-icon">💻</div>
+          <h3>Hiểu biết về Phần cứng</h3>
+          <p>Nắm vững cấu tạo máy tính, cách lựa chọn và sử dụng thiết bị phù hợp với nhu cầu công việc và học tập.</p>
+        </div>
+        <div class="skill-card reveal reveal-delay-2">
+          <div class="skill-icon">🔍</div>
+          <h3>Khai thác Thông tin</h3>
+          <p>Thành thạo tìm kiếm, lọc và đánh giá nguồn thông tin đáng tin cậy trên Internet phục vụ nghiên cứu.</p>
+        </div>
+        <div class="skill-card reveal reveal-delay-3">
+          <div class="skill-icon">🤖</div>
+          <h3>Ứng dụng AI</h3>
+          <p>Hiểu và biết cách tận dụng công cụ AI vào học tập, công việc một cách hiệu quả và có trách nhiệm.</p>
+        </div>
+        <div class="skill-card reveal reveal-delay-4">
+          <div class="skill-icon">🤝</div>
+          <h3>Hợp tác Trực tuyến</h3>
+          <p>Kỹ năng làm việc nhóm qua nền tảng số, giao tiếp hiệu quả và quản lý dự án chuyên nghiệp.</p>
+        </div>
+        <div class="skill-card reveal reveal-delay-5">
+          <div class="skill-icon">🎨</div>
+          <h3>Sáng tạo Nội dung</h3>
+          <p>Thiết kế đồ hoạ, chỉnh sửa đa phương tiện và xây dựng nội dung số thu hút trên các nền tảng.</p>
+        </div>
+        <div class="skill-card reveal reveal-delay-6">
+          <div class="skill-icon">🛡️</div>
+          <h3>An toàn & Đạo đức số</h3>
+          <p>Nhận thức sâu sắc về bảo mật thông tin, quyền riêng tư, bản quyền và liêm chính học thuật.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ REFLECTION SECTION ═══════════════ -->
+  <section class="reflection" id="reflection">
+    <div class="container">
+      <span class="section-label reveal">Tổng kết</span>
+      <h2 class="section-title reveal reveal-delay-1">
+        Nhìn lại <span class="gradient-text">hành trình</span>
+      </h2>
+      <p class="section-subtitle reveal reveal-delay-2">
+        Những trải nghiệm, bài học và cảm nhận cá nhân qua quá trình
+        thực hiện dự án Portfolio này.
+      </p>
+
+      <div class="reflection-content">
+
+        <div class="reflection-card reveal reveal-delay-1">
+          <h3><span class="icon">✨</span> Điểm tâm đắc nhất</h3>
+          <ul>
+            <li>Được tự tay xây dựng một sản phẩm số hoàn chỉnh thể hiện bản thân</li>
+            <li>Hiểu sâu hơn về cách công nghệ tác động đến cuộc sống hàng ngày</li>
+            <li>Phát triển tư duy phản biện khi đánh giá và xử lý thông tin</li>
+            <li>Biết cách ứng dụng AI một cách có trách nhiệm và hiệu quả</li>
+          </ul>
+        </div>
+
+        <div class="reflection-card reveal reveal-delay-2">
+          <h3><span class="icon">⚡</span> Thách thức đã vượt qua</h3>
+          <ul>
+            <li>Quản lý thời gian giữa nhiều bài tập và deadline</li>
+            <li>Tìm hiểu và làm quen với các công cụ số mới</li>
+            <li>Đảm bảo tính liêm chính học thuật khi trích dẫn nguồn</li>
+            <li>Tổng hợp và trình bày thông tin một cách logic, mạch lạc</li>
+          </ul>
+        </div>
+
+        <div class="reflection-card reveal reveal-delay-3">
+          <h3><span class="icon">🎯</span> Kiến thức quan trọng</h3>
+          <p>
+            Qua học phần này, tôi nhận ra rằng kỹ năng số không chỉ đơn thuần là biết sử dụng
+            máy tính, mà còn bao gồm tư duy số, khả năng thích ứng với công nghệ mới,
+            và ý thức trách nhiệm trong không gian mạng. Đây là những kỹ năng nền tảng
+            không thể thiếu cho bất kỳ ai trong thời đại 4.0.
+          </p>
+        </div>
+
+        <div class="reflection-card reveal reveal-delay-4">
+          <h3><span class="icon">🚀</span> Định hướng tương lai</h3>
+          <p>
+            Tôi sẽ tiếp tục phát triển các kỹ năng số, đặc biệt trong lĩnh vực
+            [thiết kế / lập trình / phân tích dữ liệu / ...]. Portfolio này sẽ được
+            cập nhật thường xuyên với những dự án mới, phản ánh sự trưởng thành
+            và phát triển không ngừng của bản thân.
+          </p>
+        </div>
+
+        <div class="reflection-quote reveal">
+          <blockquote>
+            "Học tập không chỉ là tích luỹ kiến thức, mà còn là hành trình
+            khám phá bản thân và phát triển khả năng thích ứng với thế giới
+            không ngừng thay đổi."
+          </blockquote>
+          <cite>— Cảm nhận cá nhân sau khi hoàn thành Portfolio</cite>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ FOOTER ═══════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-cta">
+          <h2>Cảm ơn bạn đã ghé thăm! 👋</h2>
+          <p>Portfolio này được xây dựng như một phần của dự án học tập Kỹ năng số.</p>
+        </div>
+        <div class="magnetic-wrap">
+          <a href="#hero" class="btn btn-primary">Lên đầu trang ↑</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copyright">
+          © 2025 [Họ và Tên] — Portfolio Kỹ Năng Số. MSSV: [Mã số sinh viên].
+        </p>
+        <div class="footer-links">
+          <a href="#about">Giới thiệu</a>
+          <a href="#projects">Dự án</a>
+          <a href="#reflection">Tổng kết</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- BACK TO TOP -->
+  <button class="back-to-top" aria-label="Lên đầu trang">↑</button>
+
+  <!-- SCRIPTS -->
+  <script src="script.js"></script>
+</body>
+</html>
