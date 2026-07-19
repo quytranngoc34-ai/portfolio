@@ -120,15 +120,6 @@
     .film-frame video { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; filter: saturate(0.78) sepia(0.16) contrast(1.08); }
     .film-frame figcaption { position: absolute; z-index: 3; inset: auto var(--space-4) var(--space-3); color: var(--color-ink-soft); font-size: var(--text-sm); }
 
-    .renaissance-frieze { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr); grid-template-rows: repeat(2, minmax(14rem, 23rem)); gap: var(--space-3); margin-top: var(--space-8); }
-    .frieze-piece { position: relative; margin: 0; overflow: hidden; background: var(--color-surface); }
-    .frieze-piece:first-child { grid-row: span 2; }
-    .frieze-piece img { width: 100%; height: 100%; object-fit: cover; image-rendering: auto; filter: saturate(0.9) sepia(0.05) contrast(1.04); transition: filter var(--duration-base) var(--ease-out); }
-    .frieze-piece figcaption { position: absolute; inset: auto var(--space-3) var(--space-3); padding: var(--space-1) var(--space-2); color: var(--color-ink); background: color-mix(in oklch, var(--color-canvas-deep) 78%, transparent); backdrop-filter: blur(8px); }
-    .frieze-piece:nth-child(1) img { object-position: 50% 58%; }
-    .frieze-piece:nth-child(2) img { object-position: 50% 42%; }
-    .frieze-piece:nth-child(3) img { object-position: 50% 54%; }
-
     .section { position: relative; padding-block: var(--space-8); }
     .section-number { display: block; margin-bottom: var(--space-4); color: var(--color-accent-soft); }
     .section-title { max-width: 12ch; min-width: 0; overflow-wrap: anywhere; margin: 0; font: 700 var(--text-2xl)/1.03 var(--font-display); letter-spacing: -0.035em; }
@@ -390,8 +381,6 @@
       .hero { min-height: auto; padding-top: var(--space-hero-mobile-start); padding-bottom: var(--space-hero-mobile-end); }
       .hero-inner, .about-grid, .reflection-grid, .film-grid { grid-template-columns: minmax(0, 1fr); }
       .film-copy h2 { max-width: 12ch; }
-      .renaissance-frieze { grid-template-columns: minmax(0, 1fr); grid-template-rows: repeat(3, minmax(18rem, 28rem)); }
-      .frieze-piece:first-child { grid-row: auto; }
       .hero-aside { justify-self: start; padding-top: var(--space-5); }
       .hero h1 span:last-child { margin-left: 0; }
       .about-copy { position: static; }
@@ -417,7 +406,6 @@
       .section { padding-block: var(--space-7); }
       .atelier-film { padding-block: var(--space-7); }
       .film-frame::before { inset: var(--space-1); }
-      .renaissance-frieze { grid-template-rows: repeat(3, minmax(14rem, 19rem)); margin-top: var(--space-7); }
       .map-item { grid-template-columns: 2.5rem 1fr; }
       .map-orbit { display: none; }
       .project-track { display: grid; width: 100%; padding-inline: var(--page-gutter); overflow: visible; scroll-snap-type: y proximity; }
@@ -631,13 +619,6 @@
     .map-orbit { border-color: color-mix(in oklch, var(--color-metal) 64%, var(--color-rule)); }
     .map-orbit::after { width: 0.42rem; background: var(--color-accent); box-shadow: none; }
     .map-item:hover .map-orbit::after, .map-item:focus-within .map-orbit::after { transform: translate(-50%, -50%) scale(1.35); }
-    .renaissance-frieze { grid-template-rows: repeat(2, minmax(16rem, 26rem)); gap: var(--space-4); }
-    .frieze-piece { padding-bottom: var(--space-frieze-caption); border: var(--rule) solid var(--color-metal); background: var(--color-surface); }
-    .frieze-piece::after { content: ""; position: absolute; inset: var(--space-2) var(--space-2) calc(var(--space-frieze-caption) + var(--space-2)); border: var(--rule) solid color-mix(in oklch, var(--color-metal) 58%, transparent); pointer-events: none; }
-    .frieze-piece img { height: calc(100% - var(--space-frieze-caption)); filter: saturate(0.94) contrast(1.05) brightness(1.04); transition: transform var(--duration-base) var(--ease-out); }
-    .frieze-piece figcaption { inset: auto var(--space-3) 0; height: var(--space-frieze-caption); display: flex; align-items: center; padding: 0; background: transparent; backdrop-filter: none; color: var(--color-metal-soft); }
-    @media (hover: hover) and (pointer: fine) { .frieze-piece:hover img { transform: scale(1.012); } }
-
     /* Projects · six alternating diptychs travelling through one gallery room. */
     .projects { background: var(--color-canvas); }
     .projects-intro { padding-top: var(--space-4); padding-bottom: var(--space-7); }
@@ -760,7 +741,6 @@
       .intro-heading h2 span { display: block; }
       .intro-monogram { width: min(100%, 15rem); }
       .about-copy { position: static; }
-      .renaissance-frieze { grid-template-columns: minmax(0, 1fr); grid-template-rows: repeat(3, minmax(18rem, 28rem)); }
       .project-track { width: auto; overflow-x: auto; scroll-snap-type: x mandatory; transform: none !important; }
       .project-card { flex: 0 0 min(88vw, 46rem); width: min(88vw, 46rem); grid-template-columns: minmax(0, 1fr); min-height: auto; }
       .project-art, .project-card:nth-child(even) .project-art { order: 1; min-height: 24rem; aspect-ratio: 16 / 9; border: 0; border-bottom: var(--rule) solid var(--color-metal); }
@@ -893,11 +873,6 @@
             <article class="map-item"><span class="map-index mono">04</span><div><h3>Trách nhiệm số</h3><p>Giữ ranh giới giữa hỗ trợ và gian lận, tôn trọng nguồn và bản quyền.</p></div><span class="map-orbit" aria-hidden="true"></span></article>
           </div>
         </div>
-      </div>
-      <div class="shell renaissance-frieze" aria-label="Dải hình ảnh nghệ thuật lấy cảm hứng từ thời kỳ Phục Hưng">
-        <figure class="frieze-piece"><img src="assets/renaissance/banquet-hall.webp" width="1470" height="824" loading="lazy" decoding="async" alt="Đại sảnh cổ với bàn tiệc dài và nhiều nhân vật trong ánh sáng vàng"><figcaption class="mono">Plate I · Đại sảnh</figcaption></figure>
-        <figure class="frieze-piece"><img src="assets/renaissance/painted-ceiling.webp" width="1470" height="976" loading="lazy" decoding="async" alt="Trần vẽ cổ điển với các mảng màu trầm và chi tiết dát vàng"><figcaption class="mono">Plate II · Tỷ lệ</figcaption></figure>
-        <figure class="frieze-piece"><img src="assets/renaissance/goddess-garden.webp" width="1470" height="824" loading="lazy" decoding="async" alt="Khu vườn cổ điển với tượng trắng giữa vòm cây và hoa"><figcaption class="mono">Plate III · Khu vườn</figcaption></figure>
       </div>
     </section>
 
