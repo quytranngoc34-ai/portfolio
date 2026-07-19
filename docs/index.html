@@ -125,23 +125,6 @@
     .section-title { max-width: 12ch; min-width: 0; overflow-wrap: anywhere; margin: 0; font: 700 var(--text-2xl)/1.03 var(--font-display); letter-spacing: -0.035em; }
     .section-lede { max-width: 62ch; margin: var(--space-4) 0 0; color: var(--color-ink-soft); font-size: var(--text-lg); }
 
-    .about { background: var(--color-canvas-deep); }
-    .about-grid { display: grid; grid-template-columns: minmax(0, 0.85fr) minmax(23rem, 1.15fr); gap: var(--space-dossier-gap); align-items: start; }
-    .about-copy { position: sticky; top: calc(var(--nav-height) + var(--space-6)); }
-    .portrait-mark { position: relative; width: clamp(12rem, 21vw, 18rem); aspect-ratio: 4 / 5; margin: 0 0 var(--space-6); overflow: hidden; border: var(--rule) solid var(--color-rule); border-radius: 48% 48% var(--radius-md) var(--radius-md) / 34% 34% var(--radius-md) var(--radius-md); background: var(--color-surface); box-shadow: var(--shadow-soft); }
-    .portrait-mark img { width: 100%; height: 100%; object-fit: cover; object-position: 48% 50%; image-rendering: auto; filter: saturate(0.88) contrast(1.03); }
-    .portrait-mark figcaption { position: absolute; inset: auto var(--space-2) var(--space-2); padding: var(--space-1) var(--space-2); border-radius: var(--radius-pill); color: var(--color-ink); background: color-mix(in oklch, var(--color-canvas-deep) 82%, transparent); backdrop-filter: blur(10px); text-align: center; }
-    .about-copy p { max-width: 65ch; margin: 0 0 var(--space-3); color: var(--color-ink-soft); line-height: 1.68; }
-    .about-copy strong { color: var(--color-ink); font-weight: 600; }
-    .philosophy-map { margin-top: var(--space-7); border-top: var(--rule) solid var(--color-rule); }
-    .map-item { display: grid; grid-template-columns: 3.6rem 1fr auto; gap: var(--space-4); align-items: center; padding-block: var(--space-5); border-bottom: var(--rule) solid var(--color-rule); }
-    .map-index { color: var(--color-accent-soft); }
-    .map-item h3 { margin: 0 0 var(--space-1); font: 700 var(--text-lg)/1.16 var(--font-display); }
-    .map-item p { margin: 0; color: var(--color-muted); font-size: var(--text-sm); }
-    .map-orbit { width: 2.8rem; aspect-ratio: 1; border: var(--rule) solid var(--color-rule); border-radius: 50%; position: relative; }
-    .map-orbit::after { content: ""; position: absolute; width: 0.5rem; aspect-ratio: 1; left: 50%; top: 50%; border-radius: 50%; background: var(--color-accent); transform: translate(-50%, -50%); box-shadow: 0 0 1rem var(--color-accent); transition: transform var(--duration-base) var(--ease-out); }
-    .map-item:hover .map-orbit::after { transform: translate(-50%, -50%) scale(1.8); }
-
     .projects { padding-bottom: 0; }
     .projects-intro { padding-bottom: var(--space-6); }
     .gallery-shell { position: relative; height: 460vh; }
@@ -379,11 +362,10 @@
       .site-nav[data-open="true"] .nav-links { display: flex; }
       .nav-link, .nav-pdf { justify-content: flex-start; }
       .hero { min-height: auto; padding-top: var(--space-hero-mobile-start); padding-bottom: var(--space-hero-mobile-end); }
-      .hero-inner, .about-grid, .reflection-grid, .film-grid { grid-template-columns: minmax(0, 1fr); }
+      .hero-inner, .reflection-grid, .film-grid { grid-template-columns: minmax(0, 1fr); }
       .film-copy h2 { max-width: 12ch; }
       .hero-aside { justify-self: start; padding-top: var(--space-5); }
       .hero h1 span:last-child { margin-left: 0; }
-      .about-copy { position: static; }
       .gallery-shell { height: auto; }
       .gallery-pin { position: static; height: auto; display: block; overflow: visible; }
       .gallery-status { position: static; padding-inline: var(--page-gutter); margin-bottom: var(--space-4); }
@@ -406,8 +388,6 @@
       .section { padding-block: var(--space-7); }
       .atelier-film { padding-block: var(--space-7); }
       .film-frame::before { inset: var(--space-1); }
-      .map-item { grid-template-columns: 2.5rem 1fr; }
-      .map-orbit { display: none; }
       .project-track { display: grid; width: 100%; padding-inline: var(--page-gutter); overflow: visible; scroll-snap-type: y proximity; }
       .project-card { width: 100%; min-width: 0; }
       .project-art { min-height: 0; aspect-ratio: 16 / 9; }
@@ -633,26 +613,9 @@
     .intro-row-feature { padding-block: var(--space-5); }
     .intro-row-feature dd { max-width: 68ch; }
 
-    /* About · manuscript column beside a measured learning map. */
-    .about { background: var(--color-canvas-deep); }
-    .about, .projects, .reflection { scroll-margin-top: calc(var(--banner-height) + var(--space-5)); }
-    .about-grid { grid-template-columns: minmax(0, 5fr) minmax(24rem, 7fr); gap: var(--space-exhibition-gap); }
-    .about-copy { top: calc(var(--banner-height) + var(--space-6)); }
-    .portrait-mark {
-      width: clamp(13.5rem, 22vw, 19rem); margin-bottom: var(--space-7); border-color: var(--color-metal); border-radius: 48% 48% var(--radius-sm) var(--radius-sm) / 30% 30% var(--radius-sm) var(--radius-sm);
-      box-shadow: inset 0 0 0 0.4rem var(--color-canvas-deep), inset 0 0 0 calc(0.4rem + var(--rule)) color-mix(in oklch, var(--color-metal) 66%, transparent);
-    }
-    .portrait-mark img { filter: saturate(0.88) contrast(1.06) brightness(1.02); }
-    .portrait-mark figcaption { left: var(--space-2); right: var(--space-2); border-radius: var(--radius-sm); background: var(--color-canvas-deep); backdrop-filter: none; }
+    .projects, .reflection { scroll-margin-top: calc(var(--banner-height) + var(--space-5)); }
     .section-title { max-width: 13ch; line-height: 0.98; }
     .section-lede { color: var(--color-ink-soft); line-height: 1.6; }
-    .philosophy-map { border-color: var(--color-metal); }
-    .map-item { grid-template-columns: 3.4rem minmax(0, 1fr) 2.8rem; border-color: var(--color-rule); }
-    .map-item h3 { font-size: clamp(1.45rem, 2vw, 2.1rem); }
-    .map-item p { color: var(--color-muted); }
-    .map-orbit { border-color: color-mix(in oklch, var(--color-metal) 64%, var(--color-rule)); }
-    .map-orbit::after { width: 0.42rem; background: var(--color-accent); box-shadow: none; }
-    .map-item:hover .map-orbit::after, .map-item:focus-within .map-orbit::after { transform: translate(-50%, -50%) scale(1.35); }
     /* Projects · six alternating diptychs travelling through one gallery room. */
     .projects { background: var(--color-canvas); }
     .projects-intro { padding-top: var(--space-4); padding-bottom: var(--space-7); }
@@ -773,12 +736,11 @@
       .contents-title { grid-column: 1; }
       .contents-list { grid-column: 2; grid-row: 1 / span 2; }
       .contents-art { grid-column: 1; width: min(100%, 18rem); align-self: end; }
-      .film-grid, .intro-grid, .about-grid { grid-template-columns: minmax(0, 1fr); }
+      .film-grid, .intro-grid { grid-template-columns: minmax(0, 1fr); }
       .intro-heading { position: static; }
       .intro-heading h2 { max-width: 12ch; }
       .intro-heading h2 span { display: block; }
       .intro-monogram { width: min(100%, 15rem); }
-      .about-copy { position: static; }
       .project-track { width: auto; overflow-x: auto; scroll-snap-type: x mandatory; transform: none !important; }
       .project-card { flex: 0 0 min(88vw, 46rem); width: min(88vw, 46rem); grid-template-columns: minmax(0, 1fr); min-height: auto; }
       .project-art, .project-card:nth-child(even) .project-art { order: 1; min-height: 24rem; aspect-ratio: 16 / 9; border: 0; border-bottom: var(--rule) solid var(--color-metal); }
@@ -917,31 +879,6 @@
           <div class="intro-row intro-row-feature"><dt>Mục đích portfolio</dt><dd>Portfolio này tổng hợp 6 dự án thuộc học phần “Nhập môn Công nghệ số và Ứng dụng Trí tuệ nhân tạo”, phản ánh quá trình phát triển năng lực từ kỹ năng nền tảng (quản lý tệp, tìm kiếm học thuật) đến kỹ năng nâng cao (viết prompt, hợp tác trực tuyến) và năng lực ứng dụng AI trong sáng tạo nội dung gắn với liêm chính học thuật.</dd></div>
           <div class="intro-row"><dt>Email hoặc liên kết muốn công khai</dt><dd><a href="mailto:thaonganvo166@gmail.com">thaonganvo166@gmail.com</a></dd></div>
         </dl>
-      </div>
-    </section>
-
-    <section class="section about" id="about">
-      <div class="shell about-grid">
-        <div class="about-copy">
-          <figure class="portrait-mark">
-            <img src="assets/thao-ngan-editorial-avatar.webp" width="960" height="960" loading="lazy" decoding="async" alt="Chân dung minh họa nghệ thuật đại diện cho Võ Thị Thảo Ngân">
-            <figcaption class="mono">Chân dung minh họa</figcaption>
-          </figure>
-          <span class="section-number mono">01 · About / Philosophy</span>
-          <h2 class="section-title">Tò mò là điểm khởi đầu.</h2>
-          <p>Tôi là <strong>Võ Thị Thảo Ngân</strong>, sinh viên ngành <strong>Kinh tế Phát triển</strong> tại Trường Đại học Kinh tế — ĐHQGHN. Ngoài giờ học, tôi vẽ và hát: hai cách để quan sát thế giới, lắng nghe cảm xúc và biến ý tưởng thành hình hài.</p>
-          <p>Mục tiêu của tôi là làm chủ công cụ số và Generative AI theo cách hiệu quả, sáng tạo nhưng không đánh mất trách nhiệm học thuật. Portfolio này lưu lại quá trình ấy — từ quản lý dữ liệu, tìm kiếm thông tin đến prompt, hợp tác, sáng tạo và liêm chính số.</p>
-          <p class="mono muted">MSSV 25050691 · Lớp VNU1001_E252042</p>
-        </div>
-        <div>
-          <p class="section-lede">Tôi muốn trở thành một công dân số toàn diện: biết dùng công cụ, biết đặt câu hỏi, biết kiểm chứng và biết chịu trách nhiệm với điều mình tạo ra.</p>
-          <div class="philosophy-map" aria-label="Bản đồ định hướng phát triển">
-            <article class="map-item"><span class="map-index mono">01</span><div><h3>Làm chủ công cụ</h3><p>Tổ chức tệp, không gian làm việc và quy trình số có hệ thống.</p></div><span class="map-orbit" aria-hidden="true"></span></article>
-            <article class="map-item"><span class="map-index mono">02</span><div><h3>Tư duy phản biện</h3><p>Tìm kiếm chiến lược, đánh giá nguồn và không chấp nhận kết quả đầu tiên.</p></div><span class="map-orbit" aria-hidden="true"></span></article>
-            <article class="map-item"><span class="map-index mono">03</span><div><h3>Sáng tạo có chủ đích</h3><p>Prompt rõ ràng, phối hợp nhiều công cụ và luôn có quyết định cá nhân.</p></div><span class="map-orbit" aria-hidden="true"></span></article>
-            <article class="map-item"><span class="map-index mono">04</span><div><h3>Trách nhiệm số</h3><p>Giữ ranh giới giữa hỗ trợ và gian lận, tôn trọng nguồn và bản quyền.</p></div><span class="map-orbit" aria-hidden="true"></span></article>
-          </div>
-        </div>
       </div>
     </section>
 
