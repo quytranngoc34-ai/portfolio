@@ -484,8 +484,8 @@
     .nav-link, .nav-pdf, .menu-toggle { border-radius: var(--radius-sm); }
     .nav-link:hover { color: var(--color-metal-soft); }
     .nav-link[aria-current="true"] { color: var(--color-metal-soft); background: color-mix(in oklch, var(--color-metal) 9%, transparent); }
-    .nav-pdf { color: var(--color-accent-ink); background: var(--color-accent); }
-    .nav-pdf:hover { background: var(--color-accent-soft); }
+    .nav-pdf { color: var(--color-metal-ink); background: var(--color-metal-soft); }
+    .nav-pdf:hover { background: var(--color-metal); }
 
     /* H2 · framed masterwork / academic proof diptych. */
     .hero {
@@ -520,6 +520,46 @@
     .constellation { opacity: 0.14; mix-blend-mode: screen; }
     .constellation-link { border-radius: var(--radius-sm); border-color: var(--color-rule); background: var(--color-surface); backdrop-filter: none; white-space: nowrap; }
     .constellation-link:hover, .constellation-link:focus-visible { border-color: var(--color-metal); }
+
+    /* H6 · cinematic photographic fold with an integrated project index. */
+    .hero { min-height: clamp(44rem, 90svh, 56rem); }
+    .hero::before {
+      background-position: center 47%;
+      filter: saturate(1.08) contrast(1.01) brightness(1.18);
+    }
+    .hero::after {
+      background:
+        linear-gradient(90deg, color-mix(in oklch, var(--color-canvas-deep) 94%, transparent) 0%, color-mix(in oklch, var(--color-canvas-deep) 76%, transparent) 36%, color-mix(in oklch, var(--color-canvas-deep) 22%, transparent) 76%, color-mix(in oklch, var(--color-canvas-deep) 42%, transparent) 100%),
+        linear-gradient(180deg, color-mix(in oklch, var(--color-canvas-deep) 14%, transparent) 0%, color-mix(in oklch, var(--color-canvas-deep) 8%, transparent) 48%, color-mix(in oklch, var(--color-canvas-deep) 82%, transparent) 100%);
+    }
+    .hero-spotlight { inset: calc(var(--banner-height) + var(--space-4)) var(--page-gutter) var(--space-3); }
+    .hero-inner {
+      height: auto; min-height: clamp(34rem, calc(90svh - var(--space-hero-start) - var(--space-hero-end)), 46rem);
+      grid-template-columns: repeat(12, minmax(0, 1fr)); grid-template-rows: 1fr auto auto;
+      column-gap: var(--space-4); row-gap: var(--space-6); align-items: end;
+      padding: var(--space-6) var(--space-5) var(--space-4);
+    }
+    .hero-copy { grid-column: 1 / span 8; grid-row: 2; align-self: end; }
+    .hero h1 { max-width: 13ch; font-size: clamp(3.7rem, 6.7vw, 6.4rem); line-height: 0.91; letter-spacing: -0.05em; text-wrap: balance; }
+    .hero h1 span:last-child { max-width: 12ch; margin-block-start: var(--space-2); margin-inline-start: clamp(1.5rem, 5vw, 5rem); font-size: 0.78em; line-height: 0.94; }
+    .hero-aside {
+      grid-column: 9 / 13; grid-row: 2; max-width: 36ch; justify-self: end; align-self: end;
+      padding: var(--space-4) 0 0; border: 0; border-block-start: var(--rule) solid var(--color-metal);
+      background: transparent; box-shadow: none;
+    }
+    .hero-aside p { margin: 0; color: var(--color-ink); font-size: clamp(1rem, 1.35vw, 1.18rem); line-height: 1.68; }
+    .hero-index {
+      grid-column: 1 / 13; grid-row: 3; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 0;
+      border-block: var(--rule) solid color-mix(in oklch, var(--color-metal) 64%, transparent);
+    }
+    .constellation-link {
+      min-height: 4.25rem; border: 0; border-inline-end: var(--rule) solid color-mix(in oklch, var(--color-metal) 42%, transparent);
+      border-radius: 0; background: color-mix(in oklch, var(--color-canvas-deep) 42%, transparent); color: var(--color-ink-soft);
+      backdrop-filter: none;
+      transition: color var(--duration-fast) var(--ease-out), background-color var(--duration-fast) var(--ease-out);
+    }
+    .constellation-link:first-child { border-inline-start: var(--rule) solid color-mix(in oklch, var(--color-metal) 42%, transparent); }
+    .constellation-link:hover, .constellation-link:focus-visible { color: var(--color-canvas-deep); background: var(--color-metal-soft); }
 
     /* The overture is a real 16:9 moving plate, not a browser-like card. */
     .atelier-film { padding-block: var(--space-section-room); border-block: var(--rule) solid var(--color-rule-soft); background: var(--color-surface); }
@@ -672,8 +712,10 @@
       .hero { min-height: auto; padding-top: var(--space-hero-mobile-start); padding-bottom: var(--space-hero-mobile-end); }
       .hero::before { background-image: url("assets/renaissance/jan-brueghel-woodland-road-1600.webp"); background-position: 58% center; }
       .hero::after { background: linear-gradient(180deg, color-mix(in oklch, var(--color-canvas-deep) 42%, transparent), color-mix(in oklch, var(--color-canvas-deep) 96%, transparent)); }
-      .hero-inner { grid-template-columns: minmax(0, 1fr); gap: var(--space-7); }
-      .hero-aside { max-width: 48rem; justify-self: start; }
+      .hero-inner { min-height: 42rem; grid-template-columns: minmax(0, 1fr); grid-template-rows: 1fr auto auto auto; gap: var(--space-5); padding: var(--space-5); }
+      .hero-copy { grid-column: 1; grid-row: 2; }
+      .hero-aside { grid-column: 1; grid-row: 3; max-width: 42rem; justify-self: start; }
+      .hero-index { grid-column: 1; grid-row: 4; grid-template-columns: repeat(6, minmax(0, 1fr)); }
       .film-grid, .about-grid { grid-template-columns: minmax(0, 1fr); }
       .about-copy { position: static; }
       .renaissance-frieze { grid-template-columns: minmax(0, 1fr); grid-template-rows: repeat(3, minmax(18rem, 28rem)); }
@@ -694,8 +736,12 @@
       .hero { padding-inline: var(--page-gutter); }
       .hero-spotlight { inset-inline: var(--space-2); }
       .hero h1 { font-size: clamp(3rem, 15vw, 4.5rem); }
-      .hero h1 span:last-child { font-size: 0.72em; }
-      .hero-aside { padding: var(--space-4); }
+      .hero h1 span:last-child { margin-inline-start: var(--space-3); font-size: 0.72em; }
+      .hero-aside { padding: var(--space-3) 0 0; }
+      .hero-index { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .constellation-link:nth-child(3) { border-inline-end: 0; }
+      .constellation-link:nth-child(4) { border-inline-start: var(--rule) solid color-mix(in oklch, var(--color-metal) 42%, transparent); }
+      .constellation-link:nth-child(n + 4) { border-block-start: var(--rule) solid color-mix(in oklch, var(--color-metal) 42%, transparent); }
       .project-track { display: grid; width: 100%; overflow: visible; }
       .project-card { width: 100%; min-width: 0; }
       .project-art, .project-card:nth-child(even) .project-art { min-height: 0; aspect-ratio: 16 / 10; }
@@ -751,10 +797,10 @@
         </div>
         <div class="hero-aside">
           <p>Sáu bài tập trở thành sáu điểm sáng trong hành trình học cách sử dụng công nghệ số và AI một cách sáng tạo, phản biện và có trách nhiệm.</p>
-          <div class="hero-index" aria-label="Đi tới sáu dự án">
-            <a class="constellation-link" href="#project-1">01</a><a class="constellation-link" href="#project-2">02</a><a class="constellation-link" href="#project-3">03</a>
-            <a class="constellation-link" href="#project-4">04</a><a class="constellation-link" href="#project-5">05</a><a class="constellation-link" href="#project-6">06</a>
-          </div>
+        </div>
+        <div class="hero-index" aria-label="Đi tới sáu dự án">
+          <a class="constellation-link" href="#project-1">01</a><a class="constellation-link" href="#project-2">02</a><a class="constellation-link" href="#project-3">03</a>
+          <a class="constellation-link" href="#project-4">04</a><a class="constellation-link" href="#project-5">05</a><a class="constellation-link" href="#project-6">06</a>
         </div>
       </div>
     </header>
