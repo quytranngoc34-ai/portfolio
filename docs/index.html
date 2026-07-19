@@ -10,7 +10,7 @@
   <style>
     /* Hallmark · macrostructure: Photographic · genre: editorial · tone: Renaissance-inspired luxury
      * enrichment: E2 ambient video + E8 user-supplied imagery · assets: local/self-hosted
-     * polish: full-bleed photographic folds · nav: N9 Edge-aligned · footer: Ft6 Letter close
+     * polish: full-bleed photographic folds · nav: N5 Floating pill · footer: Ft6 Letter close
      * theme: custom Renaissance nocturne · accent: antique gold · studied: no
      */
     /* Hallmark · pre-emit critique: P5 H5 E5 S5 R5 V4 */
@@ -54,12 +54,13 @@
     .muted { color: var(--color-muted); }
 
     .site-nav {
-      position: fixed; z-index: var(--z-nav); top: 0; left: 0;
-      width: 100%; min-height: var(--nav-height);
-      display: flex; align-items: center; gap: var(--space-3); padding: max(var(--space-2), env(safe-area-inset-top)) var(--page-gutter) var(--space-2);
-      border: 0; border-bottom: var(--rule) solid color-mix(in oklch, var(--color-rule) 78%, transparent);
-      border-radius: 0; background: color-mix(in oklch, var(--color-canvas-deep) 88%, transparent);
-      box-shadow: none; backdrop-filter: blur(16px) saturate(0.92);
+      position: fixed; z-index: var(--z-nav); top: max(var(--space-3), env(safe-area-inset-top)); left: 50%;
+      width: min(calc(100% - (var(--page-gutter) * 2)), var(--nav-max)); min-height: var(--nav-height);
+      display: flex; align-items: center; gap: var(--space-2); padding: var(--space-1) var(--space-2) var(--space-1) var(--space-3);
+      border: var(--rule) solid color-mix(in oklch, var(--color-rule) 86%, transparent);
+      border-radius: var(--radius-pill); background: color-mix(in oklch, var(--color-canvas-deep) 82%, transparent);
+      box-shadow: var(--shadow-soft); backdrop-filter: blur(18px) saturate(1.08);
+      transform: translateX(-50%);
     }
     .brand { display: inline-flex; align-items: center; gap: var(--space-2); min-height: 2.75rem; text-decoration: none; white-space: nowrap; }
     .brand-mark { display: grid; place-items: center; width: 2rem; aspect-ratio: 1; border: var(--rule) solid var(--color-accent); border-radius: 50% 50% 44% 44%; color: var(--color-accent-soft); font: 600 var(--text-xs)/1 var(--font-display); }
@@ -71,10 +72,9 @@
       font: 600 var(--text-xs)/1 var(--font-body); text-decoration: none; white-space: nowrap; cursor: pointer;
       transition: color var(--duration-fast) var(--ease-out), background var(--duration-fast) var(--ease-out), transform var(--duration-fast) var(--ease-out), border-color var(--duration-fast) var(--ease-out);
     }
-    .nav-link:hover, .nav-link[aria-current="true"] { background: color-mix(in oklch, var(--color-ink) 7%, transparent); }
-    @media (min-width: 62.01rem) { .nav-link { display: none; } }
+    .nav-link:hover, .nav-link[aria-current="true"] { color: var(--color-ink); background: color-mix(in oklch, var(--color-ink) 7%, transparent); }
     .nav-link:active, .nav-pdf:active, .menu-toggle:active { transform: scale(0.97); }
-    .nav-pdf { color: var(--color-accent-ink); background: var(--color-accent-soft); }
+    .nav-pdf { padding-inline: var(--space-4); color: var(--color-accent-ink); background: var(--color-accent-soft); }
     .nav-pdf:hover { background: var(--color-accent); }
     .menu-toggle { display: none; margin-left: auto; border-color: var(--color-rule); }
 
@@ -83,7 +83,7 @@
       padding: clamp(7rem, 13vh, 8.5rem) var(--page-gutter) clamp(9.5rem, 18vh, 12rem);
       background: var(--color-canvas-deep);
     }
-    .hero::before { content: ""; position: absolute; inset: 0; z-index: -4; background: url("assets/renaissance/fresco-heaven.webp") center 24% / cover no-repeat; opacity: 0.9; transform: scale(1.025); animation: hero-image-settle 1.2s var(--ease-out) both; }
+    .hero::before { content: ""; position: absolute; inset: 0; z-index: -4; background: url("assets/renaissance/fresco-heaven.webp") center 24% / cover no-repeat; opacity: 0.9; animation: hero-image-settle var(--duration-slow) var(--ease-out) both; }
     .hero::after { content: ""; position: absolute; inset: 0; z-index: -3; background: linear-gradient(90deg, color-mix(in oklch, var(--color-canvas-deep) 97%, transparent) 0 34%, color-mix(in oklch, var(--color-canvas-deep) 66%, transparent) 64%, color-mix(in oklch, var(--color-canvas-deep) 32%, transparent)); pointer-events: none; }
     .hero-spotlight { position: absolute; inset: 0; z-index: -2; background: radial-gradient(32rem circle at var(--mx, 78%) var(--my, 30%), color-mix(in oklch, var(--color-accent) 10%, transparent), transparent 72%); }
     .constellation { position: absolute; inset: 0; width: 100%; height: 100%; z-index: -1; opacity: 0.24; mix-blend-mode: screen; }
@@ -106,7 +106,7 @@
     .constellation-link:active { transform: translateY(0) scale(0.98); }
     .hero-reveal { animation: hero-settle var(--duration-slow) var(--ease-out) both; }
     @keyframes hero-settle { from { opacity: 0; transform: translateY(1.3rem); } to { opacity: 1; transform: translateY(0); } }
-    @keyframes hero-image-settle { from { opacity: 0; transform: scale(1.08); } to { opacity: 0.9; transform: scale(1.025); } }
+    @keyframes hero-image-settle { from { opacity: 0; } to { opacity: 0.9; } }
 
     .atelier-film { padding-block: var(--space-8); background: var(--color-canvas); }
     .film-grid { display: grid; grid-template-columns: minmax(14rem, 0.42fr) minmax(0, 1.58fr); gap: clamp(2.5rem, 7vw, 8rem); align-items: end; }
@@ -123,9 +123,12 @@
     .renaissance-frieze { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr); grid-template-rows: repeat(2, minmax(14rem, 23rem)); gap: var(--space-3); margin-top: var(--space-8); }
     .frieze-piece { position: relative; margin: 0; overflow: hidden; background: var(--color-surface); }
     .frieze-piece:first-child { grid-row: span 2; }
-    .frieze-piece img { width: 100%; height: 100%; object-fit: cover; filter: saturate(0.76) sepia(0.1) contrast(1.06); transition: transform var(--duration-slow) var(--ease-out), filter var(--duration-base) var(--ease-out); }
+    .frieze-piece img { width: 100%; height: 100%; object-fit: cover; image-rendering: auto; filter: saturate(0.9) sepia(0.05) contrast(1.04); transition: filter var(--duration-base) var(--ease-out); }
     .frieze-piece figcaption { position: absolute; inset: auto var(--space-3) var(--space-3); padding: var(--space-1) var(--space-2); color: var(--color-ink); background: color-mix(in oklch, var(--color-canvas-deep) 78%, transparent); backdrop-filter: blur(8px); }
-    @media (hover: hover) and (pointer: fine) { .frieze-piece:hover img { transform: scale(1.025); filter: saturate(0.9) sepia(0.06) contrast(1.04); } }
+    .frieze-piece:nth-child(1) img { object-position: 50% 58%; }
+    .frieze-piece:nth-child(2) img { object-position: 50% 42%; }
+    .frieze-piece:nth-child(3) img { object-position: 50% 54%; }
+    @media (hover: hover) and (pointer: fine) { .frieze-piece:hover img { filter: saturate(1) sepia(0.02) contrast(1.02); } }
 
     .section { position: relative; padding-block: var(--space-8); }
     .section-number { display: block; margin-bottom: var(--space-4); color: var(--color-accent-soft); }
@@ -136,7 +139,7 @@
     .about-grid { display: grid; grid-template-columns: minmax(0, 0.85fr) minmax(23rem, 1.15fr); gap: clamp(3rem, 8vw, 9rem); align-items: start; }
     .about-copy { position: sticky; top: calc(var(--nav-height) + var(--space-6)); }
     .portrait-mark { position: relative; width: clamp(12rem, 21vw, 18rem); aspect-ratio: 4 / 5; margin: 0 0 var(--space-6); overflow: hidden; border: var(--rule) solid var(--color-rule); border-radius: 48% 48% var(--radius-md) var(--radius-md) / 34% 34% var(--radius-md) var(--radius-md); background: var(--color-surface); box-shadow: var(--shadow-soft); }
-    .portrait-mark img { width: 100%; height: 100%; object-fit: cover; object-position: 48% 50%; filter: saturate(0.78) contrast(1.04); transform: scale(1.025); }
+    .portrait-mark img { width: 100%; height: 100%; object-fit: cover; object-position: 48% 50%; image-rendering: auto; filter: saturate(0.88) contrast(1.03); }
     .portrait-mark figcaption { position: absolute; inset: auto var(--space-2) var(--space-2); padding: var(--space-1) var(--space-2); border-radius: var(--radius-pill); color: var(--color-ink); background: color-mix(in oklch, var(--color-canvas-deep) 82%, transparent); backdrop-filter: blur(10px); text-align: center; }
     .about-copy p { max-width: 65ch; margin: 0 0 var(--space-3); color: var(--color-ink-soft); line-height: 1.68; }
     .about-copy strong { color: var(--color-ink); font-weight: 600; }
@@ -158,15 +161,21 @@
     .gallery-progress span { display: block; width: 100%; height: 100%; background: var(--color-accent); transform: scaleX(var(--gallery-progress, 0)); transform-origin: left; }
     .project-track { display: flex; gap: clamp(1rem, 2vw, 2rem); width: max-content; padding-inline: var(--page-gutter); will-change: transform; transform: translate3d(var(--track-x, 0px), 0, 0); }
     .project-card {
-      width: min(72vw, 58rem); min-height: min(69vh, 42rem); display: grid; grid-template-columns: minmax(15rem, 0.92fr) minmax(18rem, 1.08fr); overflow: hidden;
+      width: min(72vw, 52rem); min-height: min(78dvh, 45rem); display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows: auto minmax(0, 1fr); overflow: hidden;
       border: var(--rule) solid var(--color-rule); border-radius: var(--radius-sm); background: var(--color-surface); box-shadow: none;
     }
-    .project-art { position: relative; min-height: 21rem; overflow: hidden; border-right: var(--rule) solid var(--color-rule); background: var(--color-canvas-deep); color: var(--color-accent-soft); }
+    .project-art { position: relative; min-height: 0; aspect-ratio: 16 / 9; overflow: hidden; border-bottom: var(--rule) solid var(--color-rule); background: var(--color-canvas-deep); color: var(--color-accent-soft); }
     .project-art::before { content: attr(data-plate); position: absolute; top: var(--space-4); left: var(--space-4); z-index: 2; color: var(--color-ink-soft); font: 500 var(--text-xs)/1 var(--font-mono); letter-spacing: 0.08em; }
     .project-art::after { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(180deg, color-mix(in oklch, var(--color-canvas-deep) 30%, transparent), transparent 42%, color-mix(in oklch, var(--color-canvas-deep) 58%, transparent)); }
-    .project-painting { width: 100%; height: 100%; object-fit: cover; filter: saturate(0.72) sepia(0.12) contrast(1.08); transition: transform var(--duration-slow) var(--ease-out), filter var(--duration-base) var(--ease-out); }
+    .project-painting { width: 100%; height: 100%; object-fit: cover; image-rendering: auto; backface-visibility: hidden; filter: saturate(0.9) sepia(0.05) contrast(1.04); transition: filter var(--duration-base) var(--ease-out); }
     .project-art.has-painting > div { display: none; }
-    @media (hover: hover) and (pointer: fine) { .project-card:hover .project-painting { transform: scale(1.035); filter: saturate(0.88) sepia(0.06) contrast(1.06); } }
+    .project-card:nth-child(1) .project-painting { object-position: 50% 58%; }
+    .project-card:nth-child(2) .project-painting { object-position: 50% 56%; }
+    .project-card:nth-child(3) .project-painting { object-position: 50% 44%; }
+    .project-card:nth-child(4) .project-painting { object-position: 50% 42%; }
+    .project-card:nth-child(5) .project-painting { object-position: 50% 46%; }
+    .project-card:nth-child(6) .project-painting { object-position: 50% 48%; }
+    @media (hover: hover) and (pointer: fine) { .project-card:hover .project-painting { filter: saturate(1) sepia(0.02) contrast(1.02); } }
     .project-body { display: flex; flex-direction: column; padding: clamp(1.5rem, 3vw, 3rem); }
     .project-kicker { margin: 0 0 var(--space-5); color: var(--color-accent-soft); }
     .project-body h3 { min-width: 0; overflow-wrap: anywhere; margin: 0; font: 700 clamp(2rem, 3.6vw, 4rem)/1.05 var(--font-display); letter-spacing: -0.035em; text-wrap: balance; }
@@ -268,8 +277,14 @@
     .case-visual::before { content: ""; position: absolute; inset: 0; z-index: -2; background: url("assets/renaissance/painted-ceiling.webp") center / cover no-repeat; opacity: 0.14; }
     .case-visual::after { content: ""; position: absolute; inset: 0; z-index: -1; background: radial-gradient(18rem circle at 70% 35%, color-mix(in oklch, var(--color-accent) 16%, transparent), transparent 74%); }
     .visual-core { position: absolute; inset: 13% 10% 16%; }
-    .case-painting { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.7; filter: saturate(0.72) sepia(0.14) contrast(1.08); }
-    .case-painting + .visual-core { opacity: 0.42; mix-blend-mode: screen; }
+    .case-painting { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; image-rendering: auto; opacity: 0.88; filter: saturate(0.9) sepia(0.05) contrast(1.04); }
+    .case-painting + .visual-core { opacity: 0.28; mix-blend-mode: screen; }
+    .case-dialog[data-case="0"] .case-painting { object-position: 50% 58%; }
+    .case-dialog[data-case="1"] .case-painting { object-position: 50% 56%; }
+    .case-dialog[data-case="2"] .case-painting { object-position: 50% 44%; }
+    .case-dialog[data-case="3"] .case-painting { object-position: 50% 42%; }
+    .case-dialog[data-case="4"] .case-painting { object-position: 50% 46%; }
+    .case-dialog[data-case="5"] .case-painting { object-position: 50% 48%; }
     .visual-core span { position: absolute; display: block; border: var(--rule) solid var(--color-rule); background: color-mix(in oklch, var(--color-surface) 86%, transparent); transition: transform var(--duration-base) var(--ease-out), opacity var(--duration-base) var(--ease-out); }
     .visual-caption { position: absolute; left: var(--space-4); bottom: var(--space-3); color: var(--color-muted); }
     .case-title { display: flex; flex-direction: column; justify-content: end; padding: clamp(2.5rem, 5vw, 5rem); }
@@ -333,9 +348,9 @@
     .case-dialog[data-case="5"] .visual-core:hover span:nth-child(1) { transform: rotate(9deg) scale(1.04); }
 
     @media (max-width: 62rem) {
-      .site-nav { border-radius: 0; align-items: flex-start; flex-wrap: wrap; padding: var(--space-2) var(--page-gutter); }
+      .site-nav { top: max(var(--space-2), env(safe-area-inset-top)); width: calc(100% - (var(--space-2) * 2)); border-radius: var(--radius-lg); align-items: center; flex-wrap: wrap; padding: var(--space-1) var(--space-2); }
       .menu-toggle { display: inline-flex; }
-      .nav-links { display: none; flex-basis: 100%; flex-direction: column; align-items: stretch; margin: 0; padding: var(--space-2); }
+      .nav-links { display: none; flex-basis: 100%; flex-direction: column; align-items: stretch; margin: 0; padding: var(--space-2) 0 var(--space-1); border-top: var(--rule) solid var(--color-rule); }
       .site-nav[data-open="true"] .nav-links { display: flex; }
       .nav-link, .nav-pdf { justify-content: flex-start; }
       .hero { min-height: auto; padding-top: 7rem; padding-bottom: 6rem; }
@@ -351,7 +366,7 @@
       .gallery-status { position: static; padding-inline: var(--page-gutter); margin-bottom: var(--space-4); }
       .project-track { width: auto; overflow-x: auto; scroll-snap-type: x mandatory; transform: none !important; padding-bottom: var(--space-5); scrollbar-width: thin; }
       .project-card { flex: 0 0 min(86vw, 40rem); width: min(86vw, 40rem); grid-template-columns: minmax(0, 1fr); min-height: auto; scroll-snap-align: center; }
-      .project-art { min-height: 20rem; border-right: 0; border-bottom: var(--rule) solid var(--color-rule); }
+      .project-art { min-height: 0; aspect-ratio: 16 / 9; border-right: 0; border-bottom: var(--rule) solid var(--color-rule); }
       .case-hero { grid-template-columns: minmax(0, 1fr); }
       .case-visual { min-height: 20rem; border-right: 0; border-bottom: var(--rule) solid var(--color-rule); }
       .case-dossier { gap: var(--space-5); }
@@ -373,7 +388,7 @@
       .map-orbit { display: none; }
       .project-track { display: grid; width: 100%; padding-inline: var(--page-gutter); overflow: visible; scroll-snap-type: y proximity; }
       .project-card { width: 100%; min-width: 0; }
-      .project-art { min-height: 17rem; }
+      .project-art { min-height: 0; aspect-ratio: 16 / 9; }
       .project-body { padding: var(--space-4); }
       .project-actions, .dialog-actions { align-items: stretch; }
       .button { width: 100%; }
@@ -478,9 +493,9 @@
         </div>
       </div>
       <div class="shell renaissance-frieze" aria-label="Dải hình ảnh nghệ thuật lấy cảm hứng từ thời kỳ Phục Hưng">
-        <figure class="frieze-piece"><img src="assets/renaissance/banquet-hall.webp" width="735" height="412" loading="lazy" decoding="async" alt="Đại sảnh cổ với bàn tiệc dài và nhiều nhân vật trong ánh sáng vàng"><figcaption class="mono">Plate I · Đại sảnh</figcaption></figure>
-        <figure class="frieze-piece"><img src="assets/renaissance/painted-ceiling.webp" width="736" height="414" loading="lazy" decoding="async" alt="Trần vẽ cổ điển với các mảng màu trầm và chi tiết dát vàng"><figcaption class="mono">Plate II · Tỷ lệ</figcaption></figure>
-        <figure class="frieze-piece"><img src="assets/renaissance/goddess-garden.webp" width="735" height="412" loading="lazy" decoding="async" alt="Khu vườn cổ điển với tượng trắng giữa vòm cây và hoa"><figcaption class="mono">Plate III · Khu vườn</figcaption></figure>
+        <figure class="frieze-piece"><img src="assets/renaissance/banquet-hall.webp" width="1470" height="824" loading="lazy" decoding="async" alt="Đại sảnh cổ với bàn tiệc dài và nhiều nhân vật trong ánh sáng vàng"><figcaption class="mono">Plate I · Đại sảnh</figcaption></figure>
+        <figure class="frieze-piece"><img src="assets/renaissance/painted-ceiling.webp" width="1470" height="976" loading="lazy" decoding="async" alt="Trần vẽ cổ điển với các mảng màu trầm và chi tiết dát vàng"><figcaption class="mono">Plate II · Tỷ lệ</figcaption></figure>
+        <figure class="frieze-piece"><img src="assets/renaissance/goddess-garden.webp" width="1470" height="824" loading="lazy" decoding="async" alt="Khu vườn cổ điển với tượng trắng giữa vòm cây và hoa"><figcaption class="mono">Plate III · Khu vườn</figcaption></figure>
       </div>
     </section>
 
@@ -495,27 +510,27 @@
           <div class="gallery-status mono"><span id="gallery-count">01 / 06</span><span class="gallery-progress" aria-hidden="true"><span></span></span><span>Scroll →</span></div>
           <div class="project-track">
             <article class="project-card" id="project-1" data-project="0">
-              <div class="project-art has-painting" data-plate="PLATE 01 · SYSTEM"><img class="project-painting" src="assets/renaissance/banquet-hall.webp" width="735" height="412" loading="lazy" decoding="async" alt=""><div class="art-grid" aria-hidden="true"><span></span><span></span><span></span></div></div>
+              <div class="project-art has-painting" data-plate="PLATE 01 · SYSTEM"><img class="project-painting" src="assets/renaissance/banquet-hall.webp" width="1470" height="824" loading="lazy" decoding="async" alt=""><div class="art-grid" aria-hidden="true"><span></span><span></span><span></span></div></div>
               <div class="project-body"><p class="project-kicker mono">Bài 1 · Hạ tầng cá nhân</p><h3>Máy tính và các thiết bị ngoại vi</h3><p class="project-subtitle">Quản lý tệp và thư mục</p><p class="project-objective">Thiết lập hệ thống tổ chức dữ liệu số khoa học, hỗ trợ lưu trữ và truy xuất thông tin hiệu quả.</p><div class="project-actions"><button class="button button-primary open-case" type="button">Mở case study</button><a class="button" href="https://docs.google.com/document/d/1uxKzsZxFuy33nqNn5Gy2IJWgXtE-pszJ/edit?usp=sharing&amp;ouid=102743384976656345682&amp;rtpof=true&amp;sd=true" target="_blank" rel="noopener">Xem minh chứng ↗</a></div></div>
             </article>
             <article class="project-card" id="project-2" data-project="1">
-              <div class="project-art has-painting" data-plate="PLATE 02 · SEARCH"><img class="project-painting" src="assets/renaissance/garden-light.webp" width="714" height="400" loading="lazy" decoding="async" alt=""><div class="art-search" aria-hidden="true"></div></div>
+              <div class="project-art has-painting" data-plate="PLATE 02 · SEARCH"><img class="project-painting" src="assets/renaissance/garden-light.webp" width="1428" height="800" loading="lazy" decoding="async" alt=""><div class="art-search" aria-hidden="true"></div></div>
               <div class="project-body"><p class="project-kicker mono">Bài 2 · Tín hiệu / Nhiễu</p><h3>Khai thác dữ liệu và thông tin</h3><p class="project-subtitle">Tìm kiếm và đánh giá thông tin</p><p class="project-objective">Phát triển chiến lược tìm kiếm và năng lực đánh giá độ tin cậy của nguồn tin học thuật.</p><div class="project-actions"><button class="button button-primary open-case" type="button">Mở case study</button><a class="button" href="https://drive.google.com/file/d/1z2eaHFHucL0UFs02yWryuObVqHn_x1lB/view?usp=sharing" target="_blank" rel="noopener">Xem minh chứng ↗</a></div></div>
             </article>
             <article class="project-card" id="project-3" data-project="2">
-              <div class="project-art has-painting" data-plate="PLATE 03 · PROMPT"><img class="project-painting" src="assets/renaissance/apollo-sky.webp" width="736" height="414" loading="lazy" decoding="async" alt=""><div class="art-prompt" aria-hidden="true"><span></span><span></span><span></span></div></div>
+              <div class="project-art has-painting" data-plate="PLATE 03 · PROMPT"><img class="project-painting" src="assets/renaissance/apollo-sky.webp" width="1472" height="932" loading="lazy" decoding="async" alt=""><div class="art-prompt" aria-hidden="true"><span></span><span></span><span></span></div></div>
               <div class="project-body"><p class="project-kicker mono">Bài 3 · Đối thoại máy</p><h3>Tổng quan về trí tuệ nhân tạo</h3><p class="project-subtitle">Viết prompt hiệu quả trong học tập</p><p class="project-objective">Rèn luyện kỹ năng Prompt Engineering để khai thác Generative AI phục vụ học tập.</p><div class="project-actions"><button class="button button-primary open-case" type="button">Mở case study</button><a class="button" href="https://drive.google.com/file/d/1a8oR4AcsOg7bUMDUJZVECrRbi11Dwm7B/view?usp=sharing" target="_blank" rel="noopener">Xem minh chứng ↗</a></div></div>
             </article>
             <article class="project-card" id="project-4" data-project="3">
-              <div class="project-art has-painting" data-plate="PLATE 04 · TOGETHER"><img class="project-painting" src="assets/renaissance/fresco-heaven.webp" width="736" height="414" loading="lazy" decoding="async" alt=""><div class="art-network" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div>
+              <div class="project-art has-painting" data-plate="PLATE 04 · TOGETHER"><img class="project-painting" src="assets/renaissance/fresco-heaven.webp" width="1472" height="828" loading="lazy" decoding="async" alt=""><div class="art-network" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div>
               <div class="project-body"><p class="project-kicker mono">Bài 4 · Đồng sáng tạo</p><h3>Giao tiếp và hợp tác trong môi trường số</h3><p class="project-subtitle">Sử dụng công cụ hợp tác trực tuyến</p><p class="project-objective">Ứng dụng công cụ số để quản lý và phối hợp làm việc nhóm hiệu quả.</p><div class="project-actions"><button class="button button-primary open-case" type="button">Mở case study</button><a class="button" href="https://drive.google.com/file/d/1XJlSyF8H4wUwqut-JIsW4cLQWdmEHhV4/view?usp=sharing" target="_blank" rel="noopener">Xem minh chứng ↗</a></div></div>
             </article>
             <article class="project-card" id="project-5" data-project="4">
-              <div class="project-art has-painting" data-plate="PLATE 05 · CREATE"><img class="project-painting" src="assets/renaissance/garden-swing.webp" width="736" height="387" loading="lazy" decoding="async" alt=""><div class="art-collage" aria-hidden="true"><span></span><span></span><span></span></div></div>
+              <div class="project-art has-painting" data-plate="PLATE 05 · CREATE"><img class="project-painting" src="assets/renaissance/garden-swing.webp" width="1472" height="774" loading="lazy" decoding="async" alt=""><div class="art-collage" aria-hidden="true"><span></span><span></span><span></span></div></div>
               <div class="project-body"><p class="project-kicker mono">Bài 5 · Từ ý tưởng đến hình</p><h3>Sáng tạo nội dung số</h3><p class="project-subtitle">Ứng dụng Generative AI sáng tạo nội dung số</p><p class="project-objective">Vận dụng chuỗi công cụ Generative AI để thiết kế ấn phẩm truyền thông có định hướng rõ ràng.</p><div class="project-actions"><button class="button button-primary open-case" type="button">Mở case study</button><span class="button" aria-disabled="true">Minh chứng đang cập nhật</span></div></div>
             </article>
             <article class="project-card" id="project-6" data-project="5">
-              <div class="project-art has-painting" data-plate="PLATE 06 · INTEGRITY"><img class="project-painting" src="assets/renaissance/angel-balance.webp" width="735" height="367" loading="lazy" decoding="async" alt=""><div class="art-integrity" aria-hidden="true"></div></div>
+              <div class="project-art has-painting" data-plate="PLATE 06 · INTEGRITY"><img class="project-painting" src="assets/renaissance/angel-balance.webp" width="1470" height="734" loading="lazy" decoding="async" alt=""><div class="art-integrity" aria-hidden="true"></div></div>
               <div class="project-body"><p class="project-kicker mono">Bài 6 · Ranh giới trách nhiệm</p><h3>An toàn và liêm chính học thuật trong môi trường số</h3><p class="project-subtitle">An toàn và liêm chính học thuật</p><p class="project-objective">Hình thành nguyên tắc sử dụng AI có trách nhiệm trong học tập và nghiên cứu.</p><div class="project-actions"><button class="button button-primary open-case" type="button">Mở case study</button><span class="button" aria-disabled="true">Minh chứng đang cập nhật</span></div></div>
             </article>
           </div>

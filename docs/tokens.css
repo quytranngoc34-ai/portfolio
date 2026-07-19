@@ -56,7 +56,8 @@
   --radius-lg: 2rem;
   --radius-pill: 999px;
   --rule: 1px;
-  --nav-height: 3.25rem;
+  --nav-height: 3.5rem;
+  --nav-max: 58rem;
   --content-max: 90rem;
   --reading-max: 42rem;
 
