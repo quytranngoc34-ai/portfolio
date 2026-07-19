@@ -1,0 +1,59 @@
+/* Hallmark · macrostructure: Marquee Hero · theme: custom dark-orchid · typography: Bricolage Grotesque / Manrope / IBM Plex Mono */
+:root {
+  color-scheme: dark;
+  --color-canvas: oklch(12.5% 0.022 294);
+  --color-canvas-deep: oklch(9.5% 0.018 292);
+  --color-surface: oklch(17% 0.03 296);
+  --color-surface-raised: oklch(21% 0.042 298);
+  --color-ink: oklch(94% 0.018 300);
+  --color-ink-soft: oklch(78% 0.026 300);
+  --color-muted: oklch(62% 0.032 300);
+  --color-rule: oklch(37% 0.046 301);
+  --color-accent: oklch(73% 0.19 326);
+  --color-accent-soft: oklch(83% 0.105 326);
+  --color-accent-ink: oklch(12.5% 0.022 294);
+  --color-error: oklch(68% 0.18 25);
+  --color-shadow: oklch(4% 0.01 292);
+
+  --font-display: "Bricolage Grotesque", "Arial Narrow", sans-serif;
+  --font-body: "Manrope", "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", Consolas, monospace;
+
+  --text-xs: clamp(0.69rem, 0.66rem + 0.12vw, 0.76rem);
+  --text-sm: clamp(0.82rem, 0.78rem + 0.16vw, 0.92rem);
+  --text-base: clamp(0.98rem, 0.92rem + 0.2vw, 1.08rem);
+  --text-lg: clamp(1.18rem, 1.04rem + 0.55vw, 1.55rem);
+  --text-xl: clamp(1.8rem, 1.35rem + 1.8vw, 3.2rem);
+  --text-2xl: clamp(2.9rem, 1.75rem + 5.2vw, 7.6rem);
+  --text-hero: clamp(3.9rem, 1.7rem + 10.2vw, 12.8rem);
+
+  --space-1: 0.35rem;
+  --space-2: 0.65rem;
+  --space-3: 1rem;
+  --space-4: 1.5rem;
+  --space-5: 2.25rem;
+  --space-6: 3.5rem;
+  --space-7: 5.5rem;
+  --space-8: 8rem;
+  --page-gutter: clamp(1rem, 3.2vw, 3.75rem);
+
+  --radius-sm: 0.55rem;
+  --radius-md: 1.1rem;
+  --radius-lg: 2rem;
+  --radius-pill: 999px;
+  --rule: 1px;
+  --nav-height: 3.25rem;
+  --content-max: 90rem;
+  --reading-max: 42rem;
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-fast: 140ms;
+  --duration-base: 280ms;
+  --duration-slow: 620ms;
+
+  --shadow-soft: 0 1.5rem 5rem color-mix(in oklch, var(--color-shadow) 66%, transparent);
+  --shadow-accent: 0 0 3rem color-mix(in oklch, var(--color-accent) 20%, transparent);
+  --z-nav: 30;
+  --z-dialog: 80;
+}
