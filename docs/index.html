@@ -573,6 +573,44 @@
     .film-frame video { filter: saturate(1.02) contrast(1.03) brightness(1.03); }
     .film-frame figcaption { position: relative; inset: auto; z-index: 3; min-height: 2.75rem; display: flex; align-items: center; padding: var(--space-2) var(--space-3); border-top: var(--rule) solid var(--color-metal); color: var(--color-metal-soft); background: var(--color-canvas-deep); }
 
+    /* Personal introduction · an editorial dossier awaiting the real portrait. */
+    .personal-intro {
+      position: relative; isolation: isolate; overflow: clip; scroll-margin-top: calc(var(--banner-height) + var(--space-5));
+      padding-block: var(--space-section-room); border-block: var(--rule) solid var(--color-rule-soft); background: var(--color-surface);
+    }
+    .personal-intro::before {
+      content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+      background: linear-gradient(90deg, color-mix(in oklch, var(--color-canvas-deep) 76%, transparent), transparent 58%);
+    }
+    .intro-grid { display: grid; grid-template-columns: minmax(15rem, 4fr) minmax(0, 8fr); gap: var(--space-diptych-gap); align-items: start; }
+    .intro-heading { position: sticky; top: calc(var(--banner-height) + var(--space-6)); }
+    .intro-heading h2 {
+      max-width: 8ch; min-width: 0; margin: 0; overflow-wrap: anywhere;
+      font: 700 clamp(3rem, 5vw, 5.4rem)/1.02 var(--font-display); letter-spacing: -0.045em;
+    }
+    .intro-monogram {
+      position: relative; display: grid; place-items: center; width: min(100%, 18rem); aspect-ratio: 4 / 5;
+      margin: var(--space-6) 0 0; border: var(--rule) solid var(--color-metal); background: var(--color-canvas-deep);
+    }
+    .intro-monogram::before { content: ""; position: absolute; inset: var(--space-2); border: var(--rule) solid color-mix(in oklch, var(--color-metal) 58%, transparent); }
+    .intro-monogram-mark { color: var(--color-metal-soft); font: 600 clamp(4rem, 8vw, 7.5rem)/1 var(--font-display); letter-spacing: -0.08em; }
+    .intro-monogram figcaption {
+      position: absolute; inset: auto var(--space-2) var(--space-2); padding: var(--space-2); border-top: var(--rule) solid var(--color-metal);
+      color: var(--color-ink-soft); background: var(--color-canvas-deep); font-size: var(--text-xs); line-height: 1.45;
+    }
+    .intro-profile { border-top: var(--rule) solid var(--color-metal); }
+    .intro-row {
+      display: grid; grid-template-columns: minmax(9.5rem, 3fr) minmax(0, 7fr); gap: var(--space-4);
+      margin: 0; padding-block: var(--space-4); border-bottom: var(--rule) solid var(--color-rule);
+    }
+    .intro-row dt { color: var(--color-metal-soft); font-size: var(--text-sm); font-weight: 600; }
+    .intro-row dd { min-width: 0; margin: 0; color: var(--color-ink); line-height: 1.68; }
+    .intro-row dd a { min-height: 2.75rem; display: inline-flex; align-items: center; color: inherit; text-underline-offset: 0.22em; text-decoration-thickness: var(--rule); }
+    .intro-row dd a:hover, .intro-row dd a:focus-visible { color: var(--color-metal-soft); }
+    .intro-row dd a:active { opacity: 0.78; }
+    .intro-row-feature { padding-block: var(--space-5); }
+    .intro-row-feature dd { max-width: 68ch; }
+
     /* About · manuscript column beside a measured learning map. */
     .about { background: var(--color-canvas-deep); }
     .about, .projects, .reflection { scroll-margin-top: calc(var(--banner-height) + var(--space-5)); }
@@ -716,7 +754,11 @@
       .hero-copy { grid-column: 1; grid-row: 2; }
       .hero-aside { grid-column: 1; grid-row: 3; max-width: 42rem; justify-self: start; }
       .hero-index { grid-column: 1; grid-row: 4; grid-template-columns: repeat(6, minmax(0, 1fr)); }
-      .film-grid, .about-grid { grid-template-columns: minmax(0, 1fr); }
+      .film-grid, .intro-grid, .about-grid { grid-template-columns: minmax(0, 1fr); }
+      .intro-heading { position: static; }
+      .intro-heading h2 { max-width: 12ch; }
+      .intro-heading h2 span { display: block; }
+      .intro-monogram { width: min(100%, 15rem); }
       .about-copy { position: static; }
       .renaissance-frieze { grid-template-columns: minmax(0, 1fr); grid-template-rows: repeat(3, minmax(18rem, 28rem)); }
       .project-track { width: auto; overflow-x: auto; scroll-snap-type: x mandatory; transform: none !important; }
@@ -742,6 +784,8 @@
       .constellation-link:nth-child(3) { border-inline-end: 0; }
       .constellation-link:nth-child(4) { border-inline-start: var(--rule) solid color-mix(in oklch, var(--color-metal) 42%, transparent); }
       .constellation-link:nth-child(n + 4) { border-block-start: var(--rule) solid color-mix(in oklch, var(--color-metal) 42%, transparent); }
+      .personal-intro { padding-block: var(--space-7); }
+      .intro-row { grid-template-columns: minmax(0, 1fr); gap: var(--space-2); }
       .project-track { display: grid; width: 100%; overflow: visible; }
       .project-card { width: 100%; min-width: 0; }
       .project-art, .project-card:nth-child(even) .project-art { min-height: 0; aspect-ratio: 16 / 10; }
@@ -778,7 +822,7 @@
       </a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links">Menu</button>
       <div class="nav-links" id="nav-links">
-        <a class="nav-link" href="#about">Giới thiệu</a>
+        <a class="nav-link" href="#introduction">Giới thiệu</a>
         <a class="nav-link" href="#projects">Dự án</a>
         <a class="nav-link" href="#reflection">Tổng kết</a>
         <a class="nav-pdf" href="vo-thi-thao-ngan-portfolio.pdf" target="_blank" rel="noopener">Xem PDF ↗</a>
@@ -805,19 +849,25 @@
       </div>
     </header>
 
-    <section class="atelier-film" aria-labelledby="film-title">
-      <div class="shell film-grid">
-        <div class="film-copy">
-          <h2 id="film-title">Một khúc dạo bằng ánh sáng.</h2>
-          <p>Ba tác phẩm hội họa từ kho mở của The Met và National Gallery of Art được dựng thành một chuyển động chậm — từ đường rừng, yến tiệc thần thoại đến mùa gặt vàng.</p>
+    <section class="personal-intro" id="introduction" aria-labelledby="introduction-title">
+      <div class="shell intro-grid">
+        <div class="intro-heading">
+          <h2 id="introduction-title"><span>THÔNG TIN</span> <span>CÁ NHÂN</span></h2>
+          <figure class="intro-monogram">
+            <span class="intro-monogram-mark" aria-hidden="true">TN</span>
+            <figcaption>Ảnh chân dung: anh thì tôi gửi sau</figcaption>
+          </figure>
         </div>
-        <figure class="film-frame">
-          <video class="renaissance-video" autoplay muted loop playsinline controls preload="metadata" fetchpriority="high" poster="assets/renaissance/jan-brueghel-woodland-road-1600.webp" aria-label="Video nghệ thuật chuyển động từ ba tác phẩm hội họa thời Phục Hưng">
-            <source src="assets/renaissance/renaissance-overture.mp4" type="video/mp4">
-            <track kind="captions" src="assets/renaissance/renaissance-overture.vi.vtt" srclang="vi" label="Tiếng Việt" default>
-          </video>
-          <figcaption>Renaissance overture · 16 giây · không âm thanh</figcaption>
-        </figure>
+        <dl class="intro-profile">
+          <div class="intro-row"><dt>Họ tên</dt><dd>Võ Thị Thảo Ngân</dd></div>
+          <div class="intro-row"><dt>MSSV / trường</dt><dd>25050691 / Trường Đại Học Kinh Tế - ĐHQGHN</dd></div>
+          <div class="intro-row"><dt>Chuyên ngành</dt><dd>Kinh Tế Phát Triển</dd></div>
+          <div class="intro-row"><dt>Sở thích</dt><dd>Vẽ và Hát</dd></div>
+          <div class="intro-row intro-row-feature"><dt>Mục tiêu học tập</dt><dd>Làm chủ các công cụ công nghệ số cốt lõi và ứng dụng Trí tuệ nhân tạo (Generative AI) hiệu quả, sáng tạo và có trách nhiệm trong môi trường học thuật.</dd></div>
+          <div class="intro-row intro-row-feature"><dt>Định hướng phát triển</dt><dd>Trở thành công dân số toàn diện, có tư duy phản biện và khả năng thích ứng trong bối cảnh chuyển đổi số.</dd></div>
+          <div class="intro-row intro-row-feature"><dt>Mục đích portfolio</dt><dd>Portfolio này tổng hợp 6 dự án thuộc học phần “Nhập môn Công nghệ số và Ứng dụng Trí tuệ nhân tạo”, phản ánh quá trình phát triển năng lực từ kỹ năng nền tảng (quản lý tệp, tìm kiếm học thuật) đến kỹ năng nâng cao (viết prompt, hợp tác trực tuyến) và năng lực ứng dụng AI trong sáng tạo nội dung gắn với liêm chính học thuật.</dd></div>
+          <div class="intro-row"><dt>Email hoặc liên kết muốn công khai</dt><dd><a href="mailto:thaonganvo166@gmail.com">thaonganvo166@gmail.com</a></dd></div>
+        </dl>
       </div>
     </section>
 
@@ -996,7 +1046,7 @@
     addEventListener('scroll', () => { if(navTicking) return; navTicking = true; requestAnimationFrame(() => { updateNavMode(); navTicking = false; }); }, {passive:true});
     updateNavMode();
 
-    const sections = [...document.querySelectorAll('#about, #projects, #reflection')];
+    const sections = [...document.querySelectorAll('#introduction, #projects, #reflection')];
     const navById = new Map([...document.querySelectorAll('.nav-link')].map(a => [a.getAttribute('href').slice(1), a]));
     const sectionObserver = new IntersectionObserver(entries => entries.forEach(entry => { if (entry.isIntersecting) { navById.forEach(a => a.removeAttribute('aria-current')); navById.get(entry.target.id)?.setAttribute('aria-current','true'); } }), {rootMargin:'-42% 0px -50%'});
     sections.forEach(section => sectionObserver.observe(section));
