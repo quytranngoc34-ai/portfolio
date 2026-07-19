@@ -549,6 +549,40 @@
     .constellation-link:first-child { border-inline-start: var(--rule) solid color-mix(in oklch, var(--color-metal) 42%, transparent); }
     .constellation-link:hover, .constellation-link:focus-visible { color: var(--color-canvas-deep); background: var(--color-metal-soft); }
 
+    /* Contents · an index spread inspired by an exhibition catalogue. */
+    .contents-section {
+      position: relative; isolation: isolate; overflow: clip; scroll-margin-top: calc(var(--banner-height) + var(--space-5));
+      padding-block: var(--space-section-room); border-block-end: var(--rule) solid var(--color-rule); background: var(--color-canvas-deep);
+    }
+    .contents-grid { display: grid; grid-template-columns: minmax(12rem, 3fr) minmax(28rem, 6fr) minmax(15rem, 3fr); gap: var(--space-5); align-items: center; }
+    .contents-title { align-self: start; padding-top: var(--space-3); }
+    .contents-title h2 {
+      max-width: 6ch; min-width: 0; margin: 0; overflow-wrap: anywhere;
+      font: 700 clamp(3.4rem, 5.8vw, 6.4rem)/1.02 var(--font-display); letter-spacing: -0.05em;
+    }
+    .contents-title p { max-width: 28ch; margin: var(--space-4) 0 0; color: var(--color-metal-soft); font-size: var(--text-sm); line-height: 1.6; }
+    .contents-list { border-top: var(--rule) solid var(--color-metal); }
+    .contents-link {
+      min-height: 4.75rem; display: grid; grid-template-columns: minmax(5.5rem, auto) minmax(0, 1fr) 3rem; gap: var(--space-3); align-items: center;
+      border-bottom: var(--rule) solid var(--color-rule); color: var(--color-ink); text-decoration: none; white-space: nowrap;
+      transition: background-color var(--duration-fast) var(--ease-out);
+    }
+    .contents-link:hover, .contents-link:focus-visible { background: color-mix(in oklch, var(--color-metal) 9%, transparent); }
+    .contents-link:active { background: color-mix(in oklch, var(--color-metal) 15%, transparent); }
+    .contents-index { color: var(--color-metal-soft); font: 500 clamp(1.4rem, 2.3vw, 2rem)/1 var(--font-display); }
+    .contents-name { min-width: 0; overflow: hidden; color: var(--color-ink-soft); font-size: var(--text-sm); text-overflow: ellipsis; }
+    .contents-arrow {
+      display: grid; place-items: center; width: 2.75rem; aspect-ratio: 1; justify-self: end;
+      border: var(--rule) solid var(--color-metal); border-radius: 50%; color: var(--color-metal-soft); font-size: 1.45rem; line-height: 1;
+    }
+    .contents-art { position: relative; margin: 0; aspect-ratio: 4 / 5; overflow: hidden; border: var(--rule) solid var(--color-metal); background: var(--color-surface); }
+    .contents-art::after { content: ""; position: absolute; inset: var(--space-2); border: var(--rule) solid color-mix(in oklch, var(--color-metal) 58%, transparent); pointer-events: none; }
+    .contents-art img { width: 100%; height: 100%; object-fit: cover; object-position: 58% center; filter: saturate(0.92) contrast(1.06) brightness(0.92); }
+    .contents-art figcaption {
+      position: absolute; inset: auto var(--space-2) var(--space-2); z-index: 2; display: flex; justify-content: space-between; gap: var(--space-2);
+      padding: var(--space-2); color: var(--color-metal-soft); background: var(--color-canvas-deep); font-size: var(--text-xs);
+    }
+
     /* The overture is a real 16:9 moving plate, not a browser-like card. */
     .atelier-film { padding-block: var(--space-section-room); border-block: var(--rule) solid var(--color-rule-soft); background: var(--color-surface); }
     .film-grid { grid-template-columns: minmax(15rem, 5fr) minmax(0, 7fr); gap: var(--space-diptych-gap); align-items: center; }
@@ -735,6 +769,10 @@
       .hero-copy { grid-column: 1; grid-row: 2; }
       .hero-aside { grid-column: 1; grid-row: 3; max-width: 42rem; justify-self: start; }
       .hero-index { grid-column: 1; grid-row: 4; grid-template-columns: repeat(6, minmax(0, 1fr)); }
+      .contents-grid { grid-template-columns: minmax(0, 4fr) minmax(18rem, 8fr); }
+      .contents-title { grid-column: 1; }
+      .contents-list { grid-column: 2; grid-row: 1 / span 2; }
+      .contents-art { grid-column: 1; width: min(100%, 18rem); align-self: end; }
       .film-grid, .intro-grid, .about-grid { grid-template-columns: minmax(0, 1fr); }
       .intro-heading { position: static; }
       .intro-heading h2 { max-width: 12ch; }
@@ -764,6 +802,13 @@
       .constellation-link:nth-child(3) { border-inline-end: 0; }
       .constellation-link:nth-child(4) { border-inline-start: var(--rule) solid color-mix(in oklch, var(--color-metal) 42%, transparent); }
       .constellation-link:nth-child(n + 4) { border-block-start: var(--rule) solid color-mix(in oklch, var(--color-metal) 42%, transparent); }
+      .contents-section { padding-block: var(--space-7); }
+      .contents-grid { grid-template-columns: minmax(0, 1fr); gap: var(--space-6); }
+      .contents-title, .contents-list, .contents-art { grid-column: 1; grid-row: auto; }
+      .contents-title h2 { max-width: 8ch; font-size: clamp(3.2rem, 16vw, 4.6rem); line-height: 1; }
+      .contents-link { grid-template-columns: minmax(0, 1fr) 3rem; gap: var(--space-2); }
+      .contents-name { display: none; }
+      .contents-art { width: 100%; aspect-ratio: 16 / 10; }
       .personal-intro { padding-block: var(--space-7); }
       .intro-row { grid-template-columns: minmax(0, 1fr); gap: var(--space-2); }
       .project-track { display: grid; width: 100%; overflow: visible; }
@@ -802,6 +847,7 @@
       </a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links">Menu</button>
       <div class="nav-links" id="nav-links">
+        <a class="nav-link" href="#contents">Mục lục</a>
         <a class="nav-link" href="#introduction">Giới thiệu</a>
         <a class="nav-link" href="#projects">Dự án</a>
         <a class="nav-link" href="#reflection">Tổng kết</a>
@@ -828,6 +874,29 @@
         </div>
       </div>
     </header>
+
+    <section class="contents-section" id="contents" aria-labelledby="contents-title">
+      <div class="shell contents-grid">
+        <div class="contents-title">
+          <h2 id="contents-title">NỘI DUNG</h2>
+          <p>VNU1001_E252042 · 25050691</p>
+        </div>
+        <nav class="contents-list" aria-label="Mục lục portfolio">
+          <a class="contents-link" href="#introduction"><span class="contents-index">Giới thiệu</span><span class="contents-name">Thông tin cá nhân và định hướng phát triển</span><span class="contents-arrow" aria-hidden="true">→</span></a>
+          <a class="contents-link" href="#project-1"><span class="contents-index">Bài 1</span><span class="contents-name">Máy tính và các thiết bị ngoại vi</span><span class="contents-arrow" aria-hidden="true">→</span></a>
+          <a class="contents-link" href="#project-2"><span class="contents-index">Bài 2</span><span class="contents-name">Khai thác dữ liệu và thông tin</span><span class="contents-arrow" aria-hidden="true">→</span></a>
+          <a class="contents-link" href="#project-3"><span class="contents-index">Bài 3</span><span class="contents-name">Tổng quan về trí tuệ nhân tạo</span><span class="contents-arrow" aria-hidden="true">→</span></a>
+          <a class="contents-link" href="#project-4"><span class="contents-index">Bài 4</span><span class="contents-name">Giao tiếp và hợp tác trong môi trường số</span><span class="contents-arrow" aria-hidden="true">→</span></a>
+          <a class="contents-link" href="#project-5"><span class="contents-index">Bài 5</span><span class="contents-name">Sáng tạo nội dung số</span><span class="contents-arrow" aria-hidden="true">→</span></a>
+          <a class="contents-link" href="#project-6"><span class="contents-index">Bài 6</span><span class="contents-name">An toàn và liêm chính học thuật trong môi trường số</span><span class="contents-arrow" aria-hidden="true">→</span></a>
+          <a class="contents-link" href="#reflection"><span class="contents-index">Tổng kết</span><span class="contents-name">Kỹ năng, khoảnh khắc tự hào và thử thách</span><span class="contents-arrow" aria-hidden="true">→</span></a>
+        </nav>
+        <figure class="contents-art">
+          <img src="assets/renaissance/garden-light.webp" width="1428" height="800" loading="lazy" decoding="async" alt="Lối đi cổ điển giữa khu vườn với các tia sáng xuyên qua tán cây">
+          <figcaption><span>Portfolio · 2025—2026</span><span>Võ Thị Thảo Ngân</span></figcaption>
+        </figure>
+      </div>
+    </section>
 
     <section class="personal-intro" id="introduction" aria-labelledby="introduction-title">
       <div class="shell intro-grid">
@@ -1021,7 +1090,7 @@
     addEventListener('scroll', () => { if(navTicking) return; navTicking = true; requestAnimationFrame(() => { updateNavMode(); navTicking = false; }); }, {passive:true});
     updateNavMode();
 
-    const sections = [...document.querySelectorAll('#introduction, #projects, #reflection')];
+    const sections = [...document.querySelectorAll('#contents, #introduction, #projects, #reflection')];
     const navById = new Map([...document.querySelectorAll('.nav-link')].map(a => [a.getAttribute('href').slice(1), a]));
     const sectionObserver = new IntersectionObserver(entries => entries.forEach(entry => { if (entry.isIntersecting) { navById.forEach(a => a.removeAttribute('aria-current')); navById.get(entry.target.id)?.setAttribute('aria-current','true'); } }), {rootMargin:'-42% 0px -50%'});
     sections.forEach(section => sectionObserver.observe(section));
