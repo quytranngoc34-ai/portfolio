@@ -575,7 +575,7 @@
     .film-frame video { filter: saturate(1.02) contrast(1.03) brightness(1.03); }
     .film-frame figcaption { position: relative; inset: auto; z-index: 3; min-height: 2.75rem; display: flex; align-items: center; padding: var(--space-2) var(--space-3); border-top: var(--rule) solid var(--color-metal); color: var(--color-metal-soft); background: var(--color-canvas-deep); }
 
-    /* Personal introduction · an editorial dossier awaiting the real portrait. */
+    /* Personal introduction · an editorial student dossier with a real portrait. */
     .personal-intro {
       position: relative; isolation: isolate; overflow: clip; scroll-margin-top: calc(var(--banner-height) + var(--space-5));
       padding-block: var(--space-section-room); border-block: var(--rule) solid var(--color-rule-soft); background: var(--color-surface);
@@ -591,25 +591,34 @@
       font: 700 clamp(3rem, 5vw, 5.4rem)/1.02 var(--font-display); letter-spacing: -0.045em;
     }
     .intro-monogram {
-      position: relative; display: grid; place-items: center; width: min(100%, 18rem); aspect-ratio: 4 / 5;
-      margin: var(--space-6) 0 0; border: var(--rule) solid var(--color-metal); background: var(--color-canvas-deep);
+      position: relative; width: min(100%, 20rem); aspect-ratio: 3 / 4;
+      margin: var(--space-6) 0 0; overflow: hidden; border: var(--rule) solid var(--color-metal);
+      border-radius: 48% 48% var(--radius-md) var(--radius-md) / 22% 22% var(--radius-md) var(--radius-md);
+      background: var(--color-canvas-deep); box-shadow: 0 1.5rem 4rem color-mix(in oklch, var(--color-canvas-deep) 68%, transparent);
     }
-    .intro-monogram::before { content: ""; position: absolute; inset: var(--space-2); border: var(--rule) solid color-mix(in oklch, var(--color-metal) 58%, transparent); }
-    .intro-monogram-mark { color: var(--color-metal-soft); font: 600 clamp(4rem, 8vw, 7.5rem)/1 var(--font-display); letter-spacing: -0.08em; }
+    .intro-monogram::before { content: ""; position: absolute; inset: var(--space-2); z-index: 2; pointer-events: none; border: var(--rule) solid color-mix(in oklch, var(--color-metal) 70%, transparent); border-radius: inherit; }
+    .intro-monogram::after { content: ""; position: absolute; inset: 38% 0 0; z-index: 1; pointer-events: none; background: linear-gradient(180deg, transparent, color-mix(in oklch, var(--color-canvas-deep) 94%, transparent)); }
+    .intro-monogram img { width: 100%; height: 100%; object-fit: cover; object-position: 51% 45%; filter: saturate(0.9) contrast(1.04) brightness(0.94); transform: scale(1.015); transition: transform 450ms var(--ease-out), filter 300ms var(--ease-out); }
+    .intro-monogram:hover img { transform: scale(1.045); filter: saturate(1) contrast(1.04) brightness(0.98); }
     .intro-monogram figcaption {
-      position: absolute; inset: auto var(--space-2) var(--space-2); padding: var(--space-2); border-top: var(--rule) solid var(--color-metal);
-      color: var(--color-ink-soft); background: var(--color-canvas-deep); font-size: var(--text-xs); line-height: 1.45;
+      position: absolute; inset: auto var(--space-4) var(--space-4); z-index: 3; display: grid; gap: var(--space-1); padding-top: var(--space-3); border-top: var(--rule) solid var(--color-metal);
+      color: var(--color-ink-soft); font-size: var(--text-xs); line-height: 1.45;
     }
-    .intro-profile { border-top: var(--rule) solid var(--color-metal); }
+    .intro-monogram figcaption strong { color: var(--color-ink); font: 700 var(--text-lg)/1.15 var(--font-display); }
+    .intro-monogram figcaption span { color: var(--color-metal-soft); }
+    .intro-profile { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--rule); overflow: hidden; border: var(--rule) solid var(--color-metal); border-radius: var(--radius-md); background: var(--color-metal); box-shadow: var(--shadow-soft); }
     .intro-row {
       display: grid; grid-template-columns: minmax(9.5rem, 3fr) minmax(0, 7fr); gap: var(--space-4);
-      margin: 0; padding-block: var(--space-4); border-bottom: var(--rule) solid var(--color-rule);
+      margin: 0; padding: var(--space-4); background: color-mix(in oklch, var(--color-surface) 96%, var(--color-canvas-deep));
     }
+    .intro-row:nth-child(-n + 4) { grid-template-columns: minmax(0, 1fr); gap: var(--space-2); min-height: 7.5rem; align-content: center; }
     .intro-row dt { color: var(--color-metal-soft); font-size: var(--text-sm); font-weight: 600; }
     .intro-row dd { min-width: 0; margin: 0; color: var(--color-ink); line-height: 1.68; }
+    .intro-row:nth-child(-n + 4) dd { font: 700 var(--text-lg)/1.32 var(--font-display); }
     .intro-row dd a { min-height: 2.75rem; display: inline-flex; align-items: center; color: inherit; text-underline-offset: 0.22em; text-decoration-thickness: var(--rule); }
     .intro-row dd a:hover, .intro-row dd a:focus-visible { color: var(--color-metal-soft); }
     .intro-row dd a:active { opacity: 0.78; }
+    .intro-row-feature, .intro-row-contact { grid-column: 1 / -1; }
     .intro-row-feature { padding-block: var(--space-5); }
     .intro-row-feature dd { max-width: 68ch; }
 
@@ -772,6 +781,8 @@
       .contents-name { display: none; }
       .contents-art { width: 100%; aspect-ratio: 16 / 10; }
       .personal-intro { padding-block: var(--space-7); }
+      .intro-profile { grid-template-columns: minmax(0, 1fr); }
+      .intro-row-feature, .intro-row-contact { grid-column: auto; }
       .intro-row { grid-template-columns: minmax(0, 1fr); gap: var(--space-2); }
       .project-track { display: grid; width: 100%; overflow: visible; }
       .project-card { width: 100%; min-width: 0; }
@@ -864,9 +875,9 @@
       <div class="shell intro-grid">
         <div class="intro-heading">
           <h2 id="introduction-title"><span>THÔNG TIN</span> <span>CÁ NHÂN</span></h2>
-          <figure class="intro-monogram">
-            <span class="intro-monogram-mark" aria-hidden="true">TN</span>
-            <figcaption>Ảnh chân dung: anh thì tôi gửi sau</figcaption>
+          <figure class="intro-monogram intro-portrait">
+            <img src="assets/thao-ngan-portrait.webp" width="960" height="1296" loading="lazy" decoding="async" alt="Ảnh chân dung Võ Thị Thảo Ngân tại khuôn viên trường đại học">
+            <figcaption><strong>Võ Thị Thảo Ngân</strong><span>Kinh Tế Phát Triển · MSSV 25050691</span></figcaption>
           </figure>
         </div>
         <dl class="intro-profile">
@@ -877,7 +888,7 @@
           <div class="intro-row intro-row-feature"><dt>Mục tiêu học tập</dt><dd>Làm chủ các công cụ công nghệ số cốt lõi và ứng dụng Trí tuệ nhân tạo (Generative AI) hiệu quả, sáng tạo và có trách nhiệm trong môi trường học thuật.</dd></div>
           <div class="intro-row intro-row-feature"><dt>Định hướng phát triển</dt><dd>Trở thành công dân số toàn diện, có tư duy phản biện và khả năng thích ứng trong bối cảnh chuyển đổi số.</dd></div>
           <div class="intro-row intro-row-feature"><dt>Mục đích portfolio</dt><dd>Portfolio này tổng hợp 6 dự án thuộc học phần “Nhập môn Công nghệ số và Ứng dụng Trí tuệ nhân tạo”, phản ánh quá trình phát triển năng lực từ kỹ năng nền tảng (quản lý tệp, tìm kiếm học thuật) đến kỹ năng nâng cao (viết prompt, hợp tác trực tuyến) và năng lực ứng dụng AI trong sáng tạo nội dung gắn với liêm chính học thuật.</dd></div>
-          <div class="intro-row"><dt>Email hoặc liên kết muốn công khai</dt><dd><a href="mailto:thaonganvo166@gmail.com">thaonganvo166@gmail.com</a></dd></div>
+          <div class="intro-row intro-row-contact"><dt>Email hoặc liên kết muốn công khai</dt><dd><a href="mailto:thaonganvo166@gmail.com">thaonganvo166@gmail.com</a></dd></div>
         </dl>
       </div>
     </section>
@@ -910,7 +921,7 @@
             </article>
             <article class="project-card" id="project-5" data-project="4">
               <div class="project-art has-painting" data-plate="PLATE 05 · CREATE"><img class="project-painting" src="assets/renaissance/garden-swing.webp" width="1472" height="774" loading="eager" decoding="async" alt=""><div class="art-collage" aria-hidden="true"><span></span><span></span><span></span></div></div>
-              <div class="project-body"><p class="project-kicker mono">Bài 5 · Từ ý tưởng đến hình</p><h3>Sáng tạo nội dung số</h3><p class="project-subtitle">Ứng dụng Generative AI sáng tạo nội dung số</p><p class="project-objective">Vận dụng chuỗi công cụ Generative AI để thiết kế ấn phẩm truyền thông có định hướng rõ ràng.</p><div class="project-actions"><button class="button button-primary open-case" type="button">Mở case study</button><span class="button" aria-disabled="true">Minh chứng đang cập nhật</span></div></div>
+              <div class="project-body"><p class="project-kicker mono">Bài 5 · Từ ý tưởng đến hình</p><h3>Sáng tạo nội dung số</h3><p class="project-subtitle">Ứng dụng Generative AI sáng tạo nội dung số</p><p class="project-objective">Vận dụng chuỗi công cụ Generative AI để thiết kế ấn phẩm truyền thông có định hướng rõ ràng.</p><div class="project-actions"><button class="button button-primary open-case" type="button">Mở case study</button><a class="button" href="https://drive.google.com/file/d/1mT5L7xJ5HeqX2FLz8X-Gw5oZDkLd0K-8/view?usp=sharing" target="_blank" rel="noopener">Xem minh chứng ↗</a></div></div>
             </article>
             <article class="project-card" id="project-6" data-project="5">
               <div class="project-art has-painting" data-plate="PLATE 06 · INTEGRITY"><img class="project-painting" src="assets/renaissance/angel-balance.webp" width="1470" height="734" loading="eager" decoding="async" alt=""><div class="art-integrity" aria-hidden="true"></div></div>
@@ -990,7 +1001,7 @@
       {title:'Khai thác dữ liệu và thông tin', subtitle:'Tìm kiếm và đánh giá thông tin', objective:'Phát triển chiến lược tìm kiếm và năng lực đánh giá độ tin cậy của nguồn tin học thuật.', process:'• Sử dụng các toán tử tìm kiếm nâng cao (AND, OR, site:, filetype:, ngoặc kép “...”) để thu thập và lọc nhiễu thông tin. • Tổng hợp 11 tài liệu từ 4 nhóm nguồn (Google Scholar, tạp chí, sách/e-book, nguồn mở). • Đánh giá độ tin cậy theo 5 tiêu chí: Tác giả – Cơ quan xuất bản – Phương pháp nghiên cứu – Trích dẫn – Mức độ cập nhật.', result:'Xem liên kết minh chứng.', tags:['Search operators','Source evaluation','Critical thinking'], link:'https://drive.google.com/file/d/1z2eaHFHucL0UFs02yWryuObVqHn_x1lB/view?usp=sharing'},
       {title:'Tổng quan về trí tuệ nhân tạo', subtitle:'Viết prompt hiệu quả trong học tập', objective:'Rèn luyện kỹ năng Prompt Engineering để khai thác Generative AI phục vụ học tập.', process:'• Thiết kế 3 cấp độ prompt (Cơ bản – Cải tiến – Nâng cao) cho 3 tác vụ: tóm tắt bài đọc, giải thích khái niệm, tạo câu hỏi ôn tập. • Áp dụng các kỹ thuật: cung cấp bối cảnh (context), quy định định dạng đầu ra, role-prompting, few-shot.', result:'Xem liên kết minh chứng.', tags:['Prompt engineering','Few-shot','AI literacy'], link:'https://drive.google.com/file/d/1a8oR4AcsOg7bUMDUJZVECrRbi11Dwm7B/view?usp=sharing'},
       {title:'Giao tiếp và hợp tác trong môi trường số', subtitle:'Sử dụng công cụ hợp tác trực tuyến', objective:'Ứng dụng công cụ số để quản lý và phối hợp làm việc nhóm hiệu quả.', process:'• Tổ chức công việc trên Trello (phân công, nhãn/labels, thời hạn/deadlines). • Soạn thảo và chỉnh sửa đồng thời trên Google Docs; quản lý tệp trên Google Drive. • Trao đổi và thống nhất nhiệm vụ qua Zalo.', result:'Xem liên kết minh chứng.', tags:['Trello','Google Workspace','Teamwork'], link:'https://drive.google.com/file/d/1XJlSyF8H4wUwqut-JIsW4cLQWdmEHhV4/view?usp=sharing'},
-      {title:'Sáng tạo nội dung số', subtitle:'Ứng dụng Generative AI sáng tạo nội dung số', objective:'Vận dụng chuỗi công cụ Generative AI để thiết kế ấn phẩm truyền thông có định hướng rõ ràng.', process:'• Thực hiện infographic “Sinh viên và An toàn không gian mạng”. • Phối hợp công cụ: ChatGPT (lên dàn ý và nội dung), Midjourney/DALL·E (tạo hình minh hoạ), Canva AI (dàn bố cục). • Điều chỉnh thủ công để đảm bảo tính nhất quán, đúng mục tiêu truyền thông và dấu ấn cá nhân.', result:'Tạm chưa có.', tags:['Generative AI','Infographic','Art direction'], link:''},
+      {title:'Sáng tạo nội dung số', subtitle:'Ứng dụng Generative AI sáng tạo nội dung số', objective:'Vận dụng chuỗi công cụ Generative AI để thiết kế ấn phẩm truyền thông có định hướng rõ ràng.', process:'• Thực hiện infographic “Sinh viên và An toàn không gian mạng”. • Phối hợp công cụ: ChatGPT (lên dàn ý và nội dung), Midjourney/DALL·E (tạo hình minh hoạ), Canva AI (dàn bố cục). • Điều chỉnh thủ công để đảm bảo tính nhất quán, đúng mục tiêu truyền thông và dấu ấn cá nhân.', result:'Xem liên kết minh chứng.', tags:['Generative AI','Infographic','Art direction'], link:'https://drive.google.com/file/d/1mT5L7xJ5HeqX2FLz8X-Gw5oZDkLd0K-8/view?usp=sharing'},
       {title:'An toàn và liêm chính học thuật trong môi trường số', subtitle:'An toàn và liêm chính học thuật', objective:'Hình thành nguyên tắc sử dụng AI có trách nhiệm trong học tập và nghiên cứu.', process:'• Tìm hiểu chính sách/quy định liên quan đến AI trong môi trường đại học. • Phân tích ranh giới giữa “hỗ trợ học tập” và “gian lận/đạo văn”; nhận diện rủi ro như hallucination và vấn đề bản quyền. • Xây dựng bộ 6 nguyên tắc cá nhân để định hướng cách sử dụng AI.', result:'Tạm chưa có.', tags:['Academic integrity','AI safety','Digital ethics'], link:''}
     ];
     const caseArtifacts = ['Bài 1 · Quản lý tệp và thư mục','Bài 2 · Tìm kiếm và đánh giá thông tin','Bài 3 · Viết prompt hiệu quả','Bài 4 · Hợp tác trực tuyến','Bài 5 · Sáng tạo nội dung số','Bài 6 · Liêm chính học thuật'];
