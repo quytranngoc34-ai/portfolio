@@ -6,17 +6,14 @@
   <meta name="description" content="Portfolio học thuật của Võ Thị Thảo Ngân — sáu dự án về công nghệ số và trí tuệ nhân tạo.">
   <link rel="canonical" href="https://quytranngoc34-ai.github.io/portfolio/">
   <title>Võ Thị Thảo Ngân · Digital Learning Portfolio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="tokens.css?v=00884b1">
+  <link rel="stylesheet" href="tokens.css?v=typography-20260719">
   <style>
     /* Hallmark · macrostructure: Marquee Hero · H1 knobs: size=xxl, alignment=left-bias
-     * enrichment: custom Canvas 2D Learning Constellation · craft: Tier A/B, semantic DOM nodes
+     * enrichment: Canvas 2D constellation + generated editorial background/avatar · post-processed WebP
      * polish: none · nav: N5 Floating pill · footer: Ft5 Statement
      * theme: custom dark-orchid · accent footprint: restrained · studied: no
      */
-    /* Hallmark · pre-emit critique: P5 H5 E4 S5 R4 V5 */
+    /* Hallmark · pre-emit critique: P5 H5 E5 S5 R5 V4 */
     /* Audit · contrast: pass (40–41) · nav: N5 · footer: Ft5 · honest: pass (46) · chrome: pass (47) · studied: no */
     *, *::before, *::after { box-sizing: border-box; }
     html { scroll-behavior: smooth; background: var(--color-canvas); }
@@ -27,7 +24,7 @@
       background: var(--color-canvas);
       font-family: var(--font-body);
       font-size: var(--text-base);
-      line-height: 1.72;
+      line-height: 1.62;
       text-rendering: optimizeLegibility;
     }
     body::after {
@@ -83,16 +80,18 @@
     .hero {
       position: relative; isolation: isolate; min-height: clamp(42rem, 88dvh, 56rem); overflow: clip;
       padding: clamp(7rem, 13vh, 8.5rem) var(--page-gutter) clamp(9.5rem, 18vh, 12rem);
-      background: linear-gradient(135deg, var(--color-canvas-deep), color-mix(in oklch, var(--color-canvas) 94%, var(--color-accent) 6%));
+      background: var(--color-canvas-deep);
     }
-    .hero-spotlight { position: absolute; inset: 0; z-index: -2; background: radial-gradient(38rem circle at var(--mx, 78%) var(--my, 30%), color-mix(in oklch, var(--color-accent) 18%, transparent), transparent 68%); }
-    .constellation { position: absolute; inset: 0; width: 100%; height: 100%; z-index: -1; }
+    .hero::before { content: ""; position: absolute; inset: 0; z-index: -4; background: url("assets/learning-orchid-background.webp") center / cover no-repeat; opacity: 0.78; }
+    .hero::after { content: ""; position: absolute; inset: 0; z-index: -3; background: linear-gradient(90deg, color-mix(in oklch, var(--color-canvas-deep) 94%, transparent), color-mix(in oklch, var(--color-canvas-deep) 28%, transparent)); pointer-events: none; }
+    .hero-spotlight { position: absolute; inset: 0; z-index: -2; background: radial-gradient(34rem circle at var(--mx, 78%) var(--my, 30%), color-mix(in oklch, var(--color-accent) 11%, transparent), transparent 70%); }
+    .constellation { position: absolute; inset: 0; width: 100%; height: 100%; z-index: -1; opacity: 0.7; }
     .hero-inner { width: min(100%, var(--content-max)); height: 100%; margin-inline: auto; display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(18rem, 0.6fr); gap: var(--space-5); align-items: end; }
     .hero-copy { align-self: end; }
     .hero-meta { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-4); color: var(--color-ink-soft); margin: 0 0 var(--space-4); }
-    .hero h1 { margin: 0; max-width: 7.8ch; min-width: 0; overflow-wrap: anywhere; font-family: var(--font-display); font-size: var(--text-hero); font-weight: 650; font-stretch: 88%; letter-spacing: -0.064em; line-height: 0.84; }
+    .hero h1 { margin: 0; max-width: 18ch; min-width: 0; overflow-wrap: anywhere; font-family: var(--font-display); font-size: var(--text-hero); font-weight: 700; letter-spacing: -0.045em; line-height: 1.03; }
     .hero h1 span { display: block; }
-    .hero h1 span:last-child { color: var(--color-accent-soft); margin-left: clamp(var(--space-2), 7vw, 8rem); }
+    .hero h1 span:last-child { max-width: 18ch; color: var(--color-accent-soft); margin-left: clamp(var(--space-2), 5vw, 5rem); font-size: 0.84em; line-height: 1.06; }
     .hero-aside { max-width: 50ch; justify-self: end; padding-bottom: var(--space-2); }
     .hero-aside p { margin: 0 0 var(--space-4); color: var(--color-ink-soft); }
     .hero-index { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-2); }
@@ -109,19 +108,21 @@
 
     .section { position: relative; padding-block: var(--space-8); }
     .section-number { display: block; margin-bottom: var(--space-4); color: var(--color-accent-soft); }
-    .section-title { max-width: 12ch; min-width: 0; overflow-wrap: anywhere; margin: 0; font: 600 var(--text-2xl)/0.95 var(--font-display); letter-spacing: -0.045em; }
+    .section-title { max-width: 12ch; min-width: 0; overflow-wrap: anywhere; margin: 0; font: 700 var(--text-2xl)/1.03 var(--font-display); letter-spacing: -0.035em; }
     .section-lede { max-width: 62ch; margin: var(--space-4) 0 0; color: var(--color-ink-soft); font-size: var(--text-lg); }
 
     .about { background: var(--color-canvas-deep); }
     .about-grid { display: grid; grid-template-columns: minmax(0, 0.85fr) minmax(23rem, 1.15fr); gap: clamp(3rem, 8vw, 9rem); align-items: start; }
     .about-copy { position: sticky; top: calc(var(--nav-height) + var(--space-6)); }
-    .portrait-mark { width: clamp(9rem, 18vw, 15rem); aspect-ratio: 0.82; display: grid; place-items: center; margin-bottom: var(--space-5); border: var(--rule) solid var(--color-rule); border-radius: 48% 48% 42% 42% / 42% 42% 52% 52%; color: var(--color-accent-soft); font: 550 clamp(3rem, 8vw, 6rem)/1 var(--font-display); background: color-mix(in oklch, var(--color-surface) 86%, var(--color-accent) 14%); box-shadow: var(--shadow-accent); }
-    .about-copy p { max-width: 65ch; color: var(--color-ink-soft); }
+    .portrait-mark { position: relative; width: clamp(12rem, 21vw, 18rem); aspect-ratio: 4 / 5; margin: 0 0 var(--space-6); overflow: hidden; border: var(--rule) solid var(--color-rule); border-radius: 48% 48% var(--radius-md) var(--radius-md) / 34% 34% var(--radius-md) var(--radius-md); background: var(--color-surface); box-shadow: var(--shadow-soft); }
+    .portrait-mark img { width: 100%; height: 100%; object-fit: cover; object-position: 48% 50%; filter: saturate(0.78) contrast(1.04); transform: scale(1.025); }
+    .portrait-mark figcaption { position: absolute; inset: auto var(--space-2) var(--space-2); padding: var(--space-1) var(--space-2); border-radius: var(--radius-pill); color: var(--color-ink); background: color-mix(in oklch, var(--color-canvas-deep) 82%, transparent); backdrop-filter: blur(10px); text-align: center; }
+    .about-copy p { max-width: 65ch; margin: 0 0 var(--space-3); color: var(--color-ink-soft); line-height: 1.68; }
     .about-copy strong { color: var(--color-ink); font-weight: 600; }
     .philosophy-map { margin-top: var(--space-7); border-top: var(--rule) solid var(--color-rule); }
     .map-item { display: grid; grid-template-columns: 3.6rem 1fr auto; gap: var(--space-4); align-items: center; padding-block: var(--space-5); border-bottom: var(--rule) solid var(--color-rule); }
     .map-index { color: var(--color-accent-soft); }
-    .map-item h3 { margin: 0 0 var(--space-1); font: 560 var(--text-lg)/1.1 var(--font-display); }
+    .map-item h3 { margin: 0 0 var(--space-1); font: 700 var(--text-lg)/1.16 var(--font-display); }
     .map-item p { margin: 0; color: var(--color-muted); font-size: var(--text-sm); }
     .map-orbit { width: 2.8rem; aspect-ratio: 1; border: var(--rule) solid var(--color-rule); border-radius: 50%; position: relative; }
     .map-orbit::after { content: ""; position: absolute; width: 0.5rem; aspect-ratio: 1; left: 50%; top: 50%; border-radius: 50%; background: var(--color-accent); transform: translate(-50%, -50%); box-shadow: 0 0 1rem var(--color-accent); transition: transform var(--duration-base) var(--ease-out); }
@@ -143,7 +144,7 @@
     .project-art::before { content: attr(data-plate); position: absolute; top: var(--space-4); left: var(--space-4); z-index: 2; color: var(--color-ink-soft); font: 500 var(--text-xs)/1 var(--font-mono); letter-spacing: 0.08em; }
     .project-body { display: flex; flex-direction: column; padding: clamp(1.5rem, 3vw, 3rem); }
     .project-kicker { margin: 0 0 var(--space-5); color: var(--color-accent-soft); }
-    .project-body h3 { min-width: 0; overflow-wrap: anywhere; margin: 0; font: 590 clamp(2rem, 3.6vw, 4rem)/0.95 var(--font-display); letter-spacing: -0.04em; }
+    .project-body h3 { min-width: 0; overflow-wrap: anywhere; margin: 0; font: 700 clamp(2rem, 3.6vw, 4rem)/1.03 var(--font-display); letter-spacing: -0.035em; }
     .project-subtitle { margin: var(--space-2) 0 var(--space-5); color: var(--color-ink-soft); font-size: var(--text-lg); }
     .project-objective { max-width: 60ch; margin: 0; color: var(--color-muted); }
     .project-actions { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: auto; padding-top: var(--space-6); }
@@ -197,7 +198,7 @@
 
     .reflection { padding-block: var(--space-8); background: var(--color-ink); color: var(--color-canvas-deep); }
     .reflection .section-number { color: color-mix(in oklch, var(--color-canvas) 65%, var(--color-accent)); }
-    .reflection-quote { max-width: 14ch; min-width: 0; overflow-wrap: anywhere; margin: 0; font: 590 var(--text-2xl)/0.98 var(--font-display); letter-spacing: -0.045em; }
+    .reflection-quote { max-width: 14ch; min-width: 0; overflow-wrap: anywhere; margin: 0; font: 700 var(--text-2xl)/1.04 var(--font-display); letter-spacing: -0.035em; }
     .reflection-grid { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(22rem, 1.2fr); gap: clamp(3rem, 9vw, 10rem); margin-top: var(--space-7); }
     .reflection-story { color: color-mix(in oklch, var(--color-canvas-deep) 78%, transparent); }
     .skill-list { border-top: var(--rule) solid color-mix(in oklch, var(--color-canvas-deep) 26%, transparent); }
@@ -209,33 +210,34 @@
 
     .site-footer { position: relative; isolation: isolate; overflow: hidden; min-height: 75dvh; display: grid; align-items: end; padding-block: var(--space-8) var(--space-6); background: var(--color-canvas-deep); }
     .footer-halo { position: absolute; inset: 0; z-index: -1; background: radial-gradient(28rem circle at var(--fx, 72%) var(--fy, 42%), color-mix(in oklch, var(--color-accent) 22%, transparent), transparent 72%); }
-    .footer-statement { max-width: 11ch; min-width: 0; overflow-wrap: anywhere; margin: 0; font: 610 var(--text-2xl)/0.9 var(--font-display); letter-spacing: -0.05em; }
+    .footer-statement { max-width: 11ch; min-width: 0; overflow-wrap: anywhere; margin: 0; font: 700 var(--text-2xl)/1.02 var(--font-display); letter-spacing: -0.035em; }
     .footer-statement em { color: var(--color-accent-soft); font-style: normal; }
     .footer-bottom { display: grid; grid-template-columns: 1fr auto; gap: var(--space-5); align-items: end; margin-top: var(--space-7); padding-top: var(--space-5); border-top: var(--rule) solid var(--color-rule); }
     .footer-contact { display: flex; flex-wrap: wrap; gap: var(--space-2); align-items: center; }
     .footer-contact > a { min-height: 2.75rem; display: inline-flex; align-items: center; }
     .footer-actions { display: flex; flex-wrap: wrap; gap: var(--space-2); justify-content: end; }
-    .footer-wordmark { margin-top: var(--space-6); color: var(--color-rule); font: 650 clamp(4.2rem, 15vw, 14rem)/0.75 var(--font-display); letter-spacing: -0.07em; white-space: nowrap; }
+    .footer-wordmark { margin-top: var(--space-6); color: var(--color-rule); font: 700 clamp(4.2rem, 15vw, 12rem)/0.9 var(--font-display); letter-spacing: -0.045em; white-space: nowrap; }
 
     dialog.case-dialog {
+      position: fixed; inset: 0;
       z-index: var(--z-dialog); width: min(calc(100% - 2rem), 72rem); max-height: min(90dvh, 52rem); margin: auto; padding: 0; overflow: hidden;
       border: var(--rule) solid var(--color-rule); border-radius: var(--radius-lg); color: var(--color-ink); background: color-mix(in oklch, var(--color-surface) 92%, transparent); box-shadow: var(--shadow-soft); backdrop-filter: blur(24px) saturate(1.2);
     }
     dialog.case-dialog::backdrop { background: color-mix(in oklch, var(--color-canvas-deep) 76%, transparent); backdrop-filter: blur(8px); }
     .dialog-layout { display: grid; grid-template-columns: minmax(16rem, 0.65fr) minmax(22rem, 1.35fr); min-height: min(78dvh, 46rem); }
-    .dialog-side { display: flex; flex-direction: column; padding: var(--space-5); border-right: var(--rule) solid var(--color-rule); background: var(--color-canvas-deep); }
+    .dialog-side { position: relative; isolation: isolate; display: flex; flex-direction: column; padding: var(--space-5); overflow: hidden; border-right: var(--rule) solid var(--color-rule); background: var(--color-canvas-deep); }
+    .dialog-side::before { content: ""; position: absolute; inset: 0; z-index: -2; background: url("assets/learning-orchid-background.webp") 72% center / auto 100% no-repeat; opacity: 0.44; }
+    .dialog-side::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, color-mix(in oklch, var(--color-canvas-deep) 42%, transparent), color-mix(in oklch, var(--color-canvas-deep) 96%, transparent)); }
     .dialog-number { color: var(--color-accent-soft); }
-    .dialog-side h2 { min-width: 0; overflow-wrap: anywhere; margin: auto 0 var(--space-3); font: 590 var(--text-xl)/0.98 var(--font-display); letter-spacing: -0.04em; }
-    .dialog-side p { margin: 0; color: var(--color-muted); }
-    .dialog-main { position: relative; padding: clamp(1.5rem, 4vw, 4rem); overflow-y: auto; }
+    .dialog-side h2 { min-width: 0; overflow-wrap: anywhere; margin: auto 0 var(--space-3); font: 700 clamp(2.4rem, 3.8vw, 4.35rem)/1.02 var(--font-display); letter-spacing: -0.035em; }
+    .dialog-side p { max-width: 28ch; margin: 0; color: var(--color-ink-soft); line-height: 1.55; }
+    .dialog-main { position: relative; padding: clamp(3.5rem, 5vw, 4.75rem) clamp(1.5rem, 4vw, 4.25rem) clamp(2rem, 4vw, 4rem); overflow-y: auto; }
     .dialog-close { position: absolute; top: var(--space-3); right: var(--space-3); width: 2.8rem; aspect-ratio: 1; border-radius: 50%; border: var(--rule) solid var(--color-rule); color: var(--color-ink); background: transparent; cursor: pointer; }
     .dialog-close:hover { border-color: var(--color-accent); }
-    .dialog-main h3 { margin: var(--space-5) 0 var(--space-2); font: 560 var(--text-lg)/1.1 var(--font-display); }
-    .dialog-main p { max-width: 70ch; margin: 0; color: var(--color-ink-soft); }
+    .dialog-main h3 { margin: 0 0 var(--space-2); font: 700 var(--text-lg)/1.15 var(--font-display); letter-spacing: -0.018em; }
+    .dialog-main h3:not(:first-of-type) { margin-top: var(--space-5); }
+    .dialog-main p { max-width: 64ch; margin: 0; color: var(--color-ink-soft); line-height: 1.65; }
 
-    @media (max-width: 80rem) and (min-width: 62.01rem) {
-      .hero h1 { font-size: clamp(3.9rem, 9vw, 7.3rem); }
-    }
     .dialog-tags { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-5); }
     .dialog-tag { padding: var(--space-1) var(--space-2); border: var(--rule) solid var(--color-rule); border-radius: var(--radius-pill); color: var(--color-muted); }
     .dialog-actions { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-6); }
@@ -247,7 +249,7 @@
       .nav-links { display: none; flex-basis: 100%; flex-direction: column; align-items: stretch; margin: 0; padding: var(--space-2); }
       .site-nav[data-open="true"] .nav-links { display: flex; }
       .nav-link, .nav-pdf { justify-content: flex-start; }
-      .hero { min-height: auto; padding-top: 8rem; padding-bottom: 11rem; }
+      .hero { min-height: auto; padding-top: 7rem; padding-bottom: 6rem; }
       .hero-inner, .about-grid, .reflection-grid { grid-template-columns: 1fr; }
       .hero-aside { justify-self: start; padding-top: var(--space-5); }
       .hero h1 span:last-child { margin-left: 0; }
@@ -265,7 +267,8 @@
     @media (max-width: 40rem) {
       .hero { padding-inline: var(--page-gutter); }
       .hero-meta { display: grid; gap: var(--space-1); }
-      .hero h1 { font-size: clamp(3.4rem, 18vw, 6.1rem); line-height: 0.87; }
+      .hero h1 { max-width: 100%; font-size: clamp(3.15rem, 15.5vw, 4.85rem); line-height: 1.02; }
+      .hero h1 span:last-child { max-width: 12ch; font-size: 0.7em; line-height: 1.08; }
       .section { padding-block: var(--space-7); }
       .map-item { grid-template-columns: 2.5rem 1fr; }
       .map-orbit { display: none; }
@@ -325,7 +328,10 @@
     <section class="section about" id="about">
       <div class="shell about-grid">
         <div class="about-copy">
-          <div class="portrait-mark" aria-label="Monogram Võ Thị Thảo Ngân">TN</div>
+          <figure class="portrait-mark">
+            <img src="assets/thao-ngan-editorial-avatar.webp" width="960" height="960" loading="lazy" decoding="async" alt="Chân dung minh họa nghệ thuật đại diện cho Võ Thị Thảo Ngân">
+            <figcaption class="mono">Chân dung minh họa</figcaption>
+          </figure>
           <span class="section-number mono">01 · About / Philosophy</span>
           <h2 class="section-title">Tò mò là điểm khởi đầu.</h2>
           <p>Tôi là <strong>Võ Thị Thảo Ngân</strong>, sinh viên ngành <strong>Kinh tế Phát triển</strong> tại Trường Đại học Kinh tế — ĐHQGHN. Ngoài giờ học, tôi vẽ và hát: hai cách để quan sát thế giới, lắng nghe cảm xúc và biến ý tưởng thành hình hài.</p>
@@ -483,7 +489,7 @@
     const canvas=document.querySelector('.constellation'),ctx=canvas.getContext?.('2d');
     const nodes=[{x:.12,y:.27},{x:.34,y:.16},{x:.55,y:.29},{x:.76,y:.18},{x:.88,y:.44},{x:.68,y:.60}]; let pointer={x:-9999,y:-9999},canvasActive=true,canvasRaf=0;
     function resizeCanvas(){const dpr=Math.min(devicePixelRatio||1,1.5),r=canvas.getBoundingClientRect();canvas.width=Math.round(r.width*dpr);canvas.height=Math.round(r.height*dpr);ctx?.setTransform(dpr,0,0,dpr,0,0);drawConstellation();}
-    function drawConstellation(time=0){if(!ctx)return;const r=canvas.getBoundingClientRect(),style=getComputedStyle(document.documentElement),accent=style.getPropertyValue('--color-accent-soft').trim(),rule=style.getPropertyValue('--color-rule').trim(),mono=style.getPropertyValue('--font-mono').trim();ctx.clearRect(0,0,r.width,r.height);ctx.lineWidth=1;ctx.strokeStyle=rule;ctx.beginPath();nodes.forEach((n,i)=>{const x=n.x*r.width,y=n.y*r.height;if(i===0)ctx.moveTo(x,y);else ctx.lineTo(x,y);});ctx.stroke();nodes.forEach((n,i)=>{let x=n.x*r.width,y=n.y*r.height;const dx=x-pointer.x,dy=y-pointer.y,dist=Math.hypot(dx,dy);if(!reduced&&dist<150&&dist>1){x+=dx/dist*(150-dist)*.08;y+=dy/dist*(150-dist)*.08;}const pulse=reduced?1:1+Math.sin(time/900+i)*.12;ctx.beginPath();ctx.arc(x,y,(3.8+i*.25)*pulse,0,Math.PI*2);ctx.fillStyle=accent;ctx.shadowColor=accent;ctx.shadowBlur=14;ctx.fill();ctx.shadowBlur=0;ctx.font=`11px ${mono}`;ctx.fillStyle=accent;ctx.fillText(String(i+1).padStart(2,'0'),x+12,y+4);});if(!reduced&&canvasActive)canvasRaf=requestAnimationFrame(drawConstellation);}
+    function drawConstellation(time=0){if(!ctx)return;const r=canvas.getBoundingClientRect(),style=getComputedStyle(document.documentElement),accent=style.getPropertyValue('--color-accent-soft').trim(),rule=style.getPropertyValue('--color-rule').trim();ctx.clearRect(0,0,r.width,r.height);ctx.lineWidth=1;ctx.strokeStyle=rule;ctx.beginPath();nodes.forEach((n,i)=>{const x=n.x*r.width,y=n.y*r.height;if(i===0)ctx.moveTo(x,y);else ctx.lineTo(x,y);});ctx.stroke();nodes.forEach((n,i)=>{let x=n.x*r.width,y=n.y*r.height;const dx=x-pointer.x,dy=y-pointer.y,dist=Math.hypot(dx,dy);if(!reduced&&dist<150&&dist>1){x+=dx/dist*(150-dist)*.08;y+=dy/dist*(150-dist)*.08;}const pulse=reduced?1:1+Math.sin(time/900+i)*.12;ctx.beginPath();ctx.arc(x,y,(3.8+i*.25)*pulse,0,Math.PI*2);ctx.fillStyle=accent;ctx.shadowColor=accent;ctx.shadowBlur=14;ctx.fill();ctx.shadowBlur=0;});if(!reduced&&canvasActive)canvasRaf=requestAnimationFrame(drawConstellation);}
     hero.addEventListener('pointermove',e=>{const r=canvas.getBoundingClientRect();pointer={x:e.clientX-r.left,y:e.clientY-r.top};});hero.addEventListener('pointerleave',()=>pointer={x:-9999,y:-9999});
     const canvasObserver=new IntersectionObserver(([entry])=>{canvasActive=entry.isIntersecting;if(canvasActive&&!reduced){cancelAnimationFrame(canvasRaf);canvasRaf=requestAnimationFrame(drawConstellation);}else cancelAnimationFrame(canvasRaf);});canvasObserver.observe(hero);
     addEventListener('resize',resizeCanvas);resizeCanvas();if(!reduced)canvasRaf=requestAnimationFrame(drawConstellation);
