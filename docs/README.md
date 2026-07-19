@@ -2,11 +2,12 @@
 
 Thư mục này đã sẵn sàng để đưa lên static hosting. Website không cần cài đặt hoặc build.
 
-1. Tạo repository công khai tên `portfolio-thao-ngan` trên GitHub.
-2. Tải toàn bộ nội dung trong thư mục này lên nhánh `main`.
-3. Vào **Settings → Pages**.
-4. Chọn **Deploy from a branch**, nhánh `main`, thư mục `/ (root)` rồi lưu.
-5. URL công khai hiện tại: `https://quytranngoc34-ai.github.io/portfolio/`.
+Website hiện được xuất bản tại `https://quytranngoc34-ai.github.io/portfolio/` từ repository `quytranngoc34-ai/portfolio`.
+
+1. Bản triển khai hiện tại nằm trong thư mục `docs/` trên nhánh `main`.
+2. GitHub Pages đang dùng **Deploy from a branch → main → /docs**.
+3. Khi cập nhật, thay các tệp tương ứng trong `docs/`, commit rồi push lên `main`.
+4. Có thể dùng tệp ZIP bàn giao để triển khai lại trên bất kỳ static hosting nào.
 
 ## Trước khi xuất bản cuối
 
